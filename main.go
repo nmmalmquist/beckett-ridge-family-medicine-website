@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	"fmt"
 	"log"
 	"net/http"
@@ -9,11 +10,19 @@ import (
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/web"
 )
 
+var (
+
+	//go:embed css/output.css
+	css embed.FS
+)
+
 func main() {
 
 	// Add Routes
 	router := http.NewServeMux()
 	router.Handle("/", web.Action(index))
+	// router.Handle("/css/output.css", http.FileServer(http.FS(css)))
+	router.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 
 	// Logging and tracing
 	logger := log.New(os.Stdout, "http: ", log.LstdFlags)
