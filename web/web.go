@@ -3,8 +3,11 @@ package web
 import (
 	"bytes"
 	"io"
+	"io/fs"
 	"log"
 	"net/http"
+	"os"
+	"strings"
 	"text/template"
 )
 
@@ -63,11 +66,10 @@ func EmptyHTTP(status int) *Response {
 }
 
 // HTML renders an html template to a web response
-func HTML(status int, templateFilePath string, data interface{}, headers Headers) *Response {
+func HTML(status int, t *template.Template, templateName string, data interface{}, headers Headers) *Response {
 	//render template to buffer
 	var buf bytes.Buffer
-	t := template.Must(template.ParseFiles(templateFilePath))
-	if err := t.Execute(&buf, data); err != nil {
+	if err := t.ExecuteTemplate(&buf, templateName, data); err != nil {
 		log.Println(err)
 		return EmptyHTTP(http.StatusInternalServerError)
 	}
@@ -77,4 +79,41 @@ func HTML(status int, templateFilePath string, data interface{}, headers Headers
 		Content:     &buf,
 		Headers:     headers,
 	}
+}
+
+// TemplateParseFSRecursive recursively parses all templates in the FS with the given extension.
+// File paths are used as template names to support duplicate file names.
+// Use nonRootTemplateNames to exclude root directory from template names
+// (e.g. index.html instead of templates/index.html)
+func TemplateParseFSRecursive(
+	templates fs.FS,
+	ext string,
+	nonRootTemplateNames bool,
+	funcMap template.FuncMap) (*template.Template, error) {
+
+	root := template.New("")
+	err := fs.WalkDir(templates, "templates", func(path string, d fs.DirEntry, err error) error {
+		if !d.IsDir() && strings.HasSuffix(path, ext) {
+			if err != nil {
+				return err
+			}
+			b, err := fs.ReadFile(templates, path)
+			if err != nil {
+				return err
+			}
+			name := ""
+			if nonRootTemplateNames {
+				//name the template based on the file path (excluding the root)
+				parts := strings.Split(path, string(os.PathSeparator))
+				name = strings.Join(parts[1:], string(os.PathSeparator))
+			}
+			t := root.New(name).Funcs(funcMap)
+			_, err = t.Parse(string(b))
+			if err != nil {
+				return err
+			}
+		}
+		return nil
+	})
+	return root, err
 }

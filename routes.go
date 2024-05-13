@@ -7,5 +7,5 @@ import (
 )
 
 func index(r *http.Request) *web.Response {
-	return web.HTML(http.StatusOK, "templates/index.html", nil, nil)
+	return web.HTML(http.StatusOK, html, "pages/index.html", nil, nil)
 }

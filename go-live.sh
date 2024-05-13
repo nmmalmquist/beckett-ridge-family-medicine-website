@@ -1,0 +1,1 @@
+nodemon -e go,js,css,html --signal SIGTERM --exec 'go' run .
