@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-white">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,23 +21,82 @@
           <div class="relative flex flex-col items-center gap-6">
             <div class="border-l-8 border-primary pl-8">
               <h1 class="text-5xl text-primary font-bold">
-                West Chester Family Doctor & Practice
+                Beckett Ridge Family Medicine
               </h1>
-              <h2 class="text-5xl text-secondary font-bold">
-                Primary Care Physician
-              </h2>
-            </div>
-            <div class="text-xl flex flex-col">
-              <span>Don't be lost as another number to diagnose.</span>
-              <span> See Your Family Doctor.</span>
+              <h2 class="text-4xl text-secondary font-bold">Primary Care</h2>
             </div>
             <button
-              class="bg-primary rounded px-6 py-4 text-center text-white max-w-72 w-full"
+              class="bg-primary rounded px-6 py-4 text-center text-white max-w-72 w-full hover:bg-secondary transition-all duration-300"
             >
               Request Appointment
             </button>
           </div>
         </div>
+      </section>
+      <section
+        class="px-6 sm:px-12 md:px-16 lg:px-32 flex flex-col items-center py-20 gap-20"
+      >
+        <div class="max-w-[32rem] flex flex-col gap-14">
+          <h2 class="text-primary text-5xl font-semibold text-center">
+            Don't Use Medicine As a Permanent Bandaid.
+          </h2>
+          <p class="text-center text-lg">
+            Using medicine as a bandaid without exploring underlying issues to
+            prevent and treat illness long term is wrong. See your West Chester
+            and Becket Ridge family doctor today.
+          </p>
+          <div class="flex flex-row gap-6">
+            <button
+              class="bg-primary rounded px-6 py-4 text-center text-white max-w-72 w-full hover:bg-secondary transition-all duration-300"
+            >
+              Request Appointment
+            </button>
+            <a
+              href="/static/pdfs/Patient-Registration-Forms.pdf"
+              target="_blank"
+              rel="nofollow"
+              download
+              class="border-2 border-primary text-primary rounded px-6 py-4 text-center max-w-72 w-full hover:bg-primary hover:text-white transition-all duration-300"
+            >
+              Patient Registration Form
+            </a>
+          </div>
+        </div>
+        <hr class="w-[80%] h-1 bg-lightgray border-none rounded-full" />
+        <div class="flex flex-col items-center gap-6">
+          <svg
+            fill="currentColor"
+            viewBox="0 0 24 34"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-32 h-32 text-secondary"
+          >
+            <path
+              d="M9.563 8.469l-0.813-1.25c-5.625 3.781-8.75 8.375-8.75 12.156 0 3.656 2.688 5.375 4.969 5.375 2.875 0 4.906-2.438 4.906-5 0-2.156-1.375-4-3.219-4.688-0.531-0.188-1.031-0.344-1.031-1.25 0-1.156 0.844-2.875 3.938-5.344zM21.969 8.469l-0.813-1.25c-5.563 3.781-8.75 8.375-8.75 12.156 0 3.656 2.75 5.375 5.031 5.375 2.906 0 4.969-2.438 4.969-5 0-2.156-1.406-4-3.313-4.688-0.531-0.188-1-0.344-1-1.25 0-1.156 0.875-2.875 3.875-5.344z"
+            ></path>
+          </svg>
+          <p class="text-center font-thin text-lg leading-10">
+            “My doctor has treated my chronic illnesses and other issues for me
+            in the most caring and knowledgeable way. They get to know you and
+            are willing to look at natural remedies before starting medications.
+            Instead of just prescribing me certain meds which would cost me $
+            and dump $ into the greedy pharmaceutical monster industry, I was
+            advised a less intense and harmful approach and continue to be
+            monitored! The schedule availability is amazing too.”
+          </p>
+          <span
+            class="text-center space-x-10 mt-6 text-xl font-thin tracking-widest"
+            >- Sydney</span
+          >
+        </div>
+      </section>
+      <section
+        class="px-6 sm:px-12 md:px-16 lg:px-32 bg-secondary flex flex-col py-20"
+      >
+        <h1 class="text-4xl text-white text-center">
+          Health is Not Just Absence of Disease But Is Living With Vitality
+        </h1>
+        {{range .CardFacts}} {{template "components/fact_card.html" .}} {{end}}
       </section>
     </main>
   </body>

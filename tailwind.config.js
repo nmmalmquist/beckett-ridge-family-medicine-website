@@ -10,6 +10,7 @@ module.exports = {
       offwhite: "#EEEEEE",
       white: "#ffffff",
       dark: "#222831",
+      lightgray: "#d3d3d3",
     },
     extend: {},
   },
