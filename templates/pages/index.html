@@ -96,7 +96,25 @@
         <h1 class="text-4xl text-white text-center">
           Health is Not Just Absence of Disease But Is Living With Vitality
         </h1>
-        {{range .CardFacts}} {{template "components/fact_card.html" .}} {{end}}
+        <div class="flex gap-6 mt-14 justify-center items-stretch flex-wrap">
+          {{range .CardFacts}}
+          <div class="flex-1 min-w-72">
+            {{template "components/fact_card.html" .}}
+          </div>
+          {{end}}
+        </div>
+      </section>
+      <section class="px-6 sm:px-12 md:px-16 lg:px-32 flex flex-col py-20">
+        <h1 class="text-4xl text-center">
+          Control Your Health. Visit Your Family Practice.
+        </h1>
+        <div class="flex gap-6 mt-14 justify-center items-stretch flex-wrap">
+          {{range .TabFacts}}
+          <div class="flex-1 max-w-96 min-w-64">
+            {{template "components/fact_tab.html" .}}
+          </div>
+          {{end}}
+        </div>
       </section>
     </main>
   </body>

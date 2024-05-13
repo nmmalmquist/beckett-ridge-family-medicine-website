@@ -1,7 +1,7 @@
 package types
 
-type CardFact struct {
+type TabFact struct {
 	Icon string
 	Title string 
-	Description string
+	ColorClass string
 }
