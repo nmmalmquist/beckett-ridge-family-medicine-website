@@ -1,5 +1,5 @@
 <nav
-  class="w-full bg-white shadow-2xl px-6 sm:px-12 py-3 flex justify-between items-center gap-10"
+  class="w-full bg-white shadow-2xl px-6 sm:px-12 py-3 flex justify-between items-center gap-10 relative z-20"
 >
   <a class="h-12 block" href="/">
     <img src="/static/images/brf_logo.png" class="object-contain h-full" />
@@ -96,6 +96,7 @@
         </a>
       </div>
       <button
+        id="mobile-menu-button"
         class="md:hidden hover:text-primary transition-colors duration-300"
       >
         <!-- Hamburger Icon -->
@@ -117,3 +118,6 @@
     </div>
   </div>
 </nav>
+{{ template "components/nav_drawer.html" . }}
+
+<script src="/static/js/navbar.js"></script>
