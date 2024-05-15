@@ -5,13 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/css/output.css" />
     <title>Beckett Ridge Family Medicine</title>
+    <style>
+      .banner-animation {
+        animation: 20s infinite slide;
+      }
+      @keyframes slide {
+        0% {
+          background-image: url(/static/images/banner3.jpg);
+          /* opacity: 0; */
+        }
+        22% {
+          background-image: url(/static/images/banner3.jpg);
+        }
+        28% {
+          background-image: url(/static/images/banner4.jpg);
+        }
+        72% {
+          background-image: url(/static/images/banner4.jpg);
+        }
+        78% {
+          background-image: url(/static/images/banner3.jpg);
+        }
+        100% {
+          background-image: url(/static/images/banner3.jpg);
+        }
+      }
+    </style>
   </head>
   <body>
     {{ template "components/navbar.html" . }}
     <main>
       <section
-        style="background-image: url(/static/images/banner3.jpg)"
-        class="w-full h-[calc(100vh-5rem)] bg-cover bg-center relative flex flex-col items-center justify-center"
+        class="w-full h-[calc(100vh-5rem)] bg-cover bg-center relative flex flex-col items-center justify-center banner-animation"
       >
         <div class="flex flex-col gap-10 relative text-center rounded-lg p-6">
           <div
@@ -19,7 +44,7 @@
           ></div>
 
           <div class="relative flex flex-col items-center gap-6">
-            <div class="border-l-8 border-primary pl-8">
+            <div class="border-l-8 border-primary pl-8 flex flex-col gap-6">
               <h1 class="text-5xl text-primary font-bold">
                 Beckett Ridge Family Medicine
               </h1>

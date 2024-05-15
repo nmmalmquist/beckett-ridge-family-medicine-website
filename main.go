@@ -3,11 +3,9 @@ package main
 import (
 	"embed"
 	"fmt"
-	"io/fs"
 	"log"
 	"net/http"
 	"os"
-	"strings"
 	"text/template"
 
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/web"
@@ -25,28 +23,11 @@ var (
 )
 
 func main() {
+
 	var err error
 	// read in html for static components it map for use in data for templates
 	staticHTML = make(map[string]string)
-	err = fs.WalkDir(staticHTMLFS, "static_html", func(path string, d fs.DirEntry, err error) error {
-		if !d.IsDir(){
-			
-			if err != nil {
-				return err
-			}
-			
-			data, e :=  os.ReadFile(path)
-			if e != nil {
-				return e
-			}
-			
-			parts:=strings.Split(path, string(os.PathSeparator))
-			name := strings.Split(parts[len(parts)-1], ".")[0]
-			
-			staticHTML[name] = string(data)
-		}
-		return nil
-	})
+	err = parseStaticHtml(staticHTMLFS)
 
 	//parse templates and create relations so that templates can reference eachother
 	if err != nil {
