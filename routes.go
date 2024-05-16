@@ -9,6 +9,10 @@ import (
 
 
 func index(r *http.Request) *web.Response {
+	// Need to check because all routes that don't match will come here
+	if r.URL.Path != "/" {
+        return error404()
+    }
 	type IndexPageData struct {
 		ActivePage string
 		CardFacts []types.CardFact
@@ -29,4 +33,13 @@ func index(r *http.Request) *web.Response {
 		},
     }
 	return web.HTML(http.StatusOK, html, "pages/index.html", data, nil)
+}
+func providers(r *http.Request) *web.Response {
+	return web.HTML(http.StatusOK, html, "pages/providers.html", nil, nil)
+}
+func requestAppointment(r *http.Request) *web.Response {
+	return web.HTML(http.StatusOK, html, "pages/request-appointment.html", nil, nil)
+}
+func error404() *web.Response{
+    return web.HTML(http.StatusOK, html, "pages/404.html", nil, nil)
 }
