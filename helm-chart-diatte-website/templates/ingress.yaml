@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "helm-chart-diatte-website.fullname" . }}
+  annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      acme.cert-manager.io/http01-edit-in-place: 'true' 
+spec:
+  rules:
+  - host: {{.Values.ingress.hostName}}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ include "helm-chart-diatte-website.fullname" . }}
+            port:
+              number: {{ .Values.service.port }}
+  - host: www.{{.Values.ingress.hostName}}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ include "helm-chart-diatte-website.fullname" . }}
+            port:
+              number: {{ .Values.service.port }}
+  tls:
+  - hosts:
+    - {{.Values.ingress.hostName}}
+    - www.{{.Values.ingress.hostName}}
+    secretName: letsencrypt-prod

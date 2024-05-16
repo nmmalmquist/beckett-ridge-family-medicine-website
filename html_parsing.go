@@ -1,8 +1,8 @@
 package main
 
 import (
+	"io"
 	"io/fs"
-	"os"
 	"strings"
 )
 
@@ -14,8 +14,12 @@ func parseStaticHtml(fileSystem fs.FS) error {
 				return err
 			}
 
-			data, e := os.ReadFile(path)
+			file, e := fileSystem.Open(path)
 			if e != nil {
+				return e
+			}
+			data, readErr := io.ReadAll(file)
+			if readErr != nil {
 				return e
 			}
 

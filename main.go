@@ -12,14 +12,16 @@ import (
 )
 
 var (
-	//go:embed all:templates/**
+	//go:embed all:templates/*
 	templateFS embed.FS
 	//parsed templates
 	html *template.Template
-	//go:embed all:static_html/**
+	//go:embed all:static_html/*
 	staticHTMLFS embed.FS
 	// map of static html components
 	staticHTML map[string]string
+	//go:embed all:static/*
+	staticFS embed.FS
 )
 
 func main() {
@@ -41,14 +43,14 @@ func main() {
 	// Add Routes
 	router := http.NewServeMux()
 	// Allows access to images, css, and js files
-	router.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	router.Handle("/static/",http.FileServer(http.FS(staticFS)))
 	router.Handle("/", web.Action(index))
 
 	// Logging and tracing
 	logger := log.New(os.Stdout, "http: ", log.LstdFlags)
 	middleware := logging(logger)(router)
 
-	ADDRESS := "localhost:8000"
+	ADDRESS := "0.0.0.0:8000"
 	fmt.Println("Started web server on", ADDRESS)
 	log.Fatal(http.ListenAndServe(ADDRESS, middleware))
 
