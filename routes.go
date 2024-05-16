@@ -10,11 +10,13 @@ import (
 
 func index(r *http.Request) *web.Response {
 	type IndexPageData struct {
+		ActivePage string
 		CardFacts []types.CardFact
 		TabFacts []types.TabFact
 	}
 	
 	data := IndexPageData{
+		ActivePage: "index",
         CardFacts: []types.CardFact{
             {Icon: staticHTML["dr-icon"], Title: "Understand Your Health", Description: "At our family practice, we understand that symptoms often hint at deeper underlying issues. We prioritize thorough examination and personalized care to uncover these root causes, ensuring a comprehensive understanding of your health. By taking the time to explore these factors, we craft personalized health plans tailored to your needs, providing you with a clear picture of your health journey. Invest in comprehensive care today for a healthier tomorrow."},
             {Icon: staticHTML["currency-circle-icon"], Title: "Save Money", Description: "By exploring the underlying health issues with a trusted family practice, you not only invest in your well-being but also save significant amounts of money in the long run. Our comprehensive approach to healthcare focuses on preventative measures, early detection, and personalized treatment plans tailored to your unique needs. By addressing health concerns proactively, we help you avoid costly medical emergencies and unnecessary expenses associated with untreated conditions. Invest in your health today to save money and enjoy a healthier, more fulfilling life tomorrow."},
