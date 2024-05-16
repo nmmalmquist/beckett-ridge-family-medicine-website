@@ -1,10 +1,10 @@
 <div
   id="nav-drawer"
-  class="w-full h-[calc(100dvh-6rem)] bg-offwhite absolute left-0 top-full transition-transform duration-500 -translate-y-[calc(100dvh-6rem)] overflow-y-auto px-[10vw] py-10 flex flex-col md:hidden gap-6"
+  class="w-full h-[calc(100dvh-6rem)] bg-offwhite absolute left-0 top-full transition-transform duration-500 -translate-y-[calc(100dvh-6rem)] overflow-y-auto px-[7vw] pb-6 flex flex-col md:hidden gap-6"
 >
-<ul class="flex flex-col justify-between overflow-y-auto flex-1">
+<ul class="flex flex-col justify-between overflow-y-auto flex-1 pt-8 bg-offwhite rounded-lg">
   <a
-    class="rounded-xl w-full text-center p-10 {{if eq .ActivePage "index"}} bg-primary-light text-primary {{end}} hover:bg-primary-light text-xl flex items-center justify-center gap-2"
+    class="rounded-xl w-full text-center py-[4vh] {{if eq .ActivePage "index"}} bg-primary-light text-primary {{end}} hover:bg-primary-light text-xl flex items-center justify-center gap-2"
     href="/"
   >
     <svg
@@ -24,9 +24,9 @@
 
     Home
   </a>
-  <hr class="bg-lightgray h-[.1rem] rounded-full w-full border-none my-4" />
+  <hr class="flex-none bg-lightgray h-[.1rem] rounded-full w-full border-none my-2" />
   <a
-    class="rounded-xl w-full text-center p-10 hover:bg-primary-light text-xl flex items-center justify-center gap-2"
+    class="rounded-xl w-full text-center py-[4vh] hover:bg-primary-light text-xl flex items-center justify-center gap-2"
     href="https://mycw33.eclinicalweb.com/portal3462/jsp/100mp/login_otp.jsp"
     ><svg
       xmlns="http://www.w3.org/2000/svg"
@@ -45,9 +45,9 @@
 
     Patient Portal
   </a>
-  <hr class="bg-lightgray h-[.1rem] rounded-full w-full border-none my-4" />
+  <hr class="flex-none bg-lightgray h-[.1rem] rounded-full w-full border-none my-2" />
   <a
-    class="rounded-xl w-full text-center p-10 {{if eq .ActivePage "request-appointment"}} bg-primary-light text-primary {{end}} hover:bg-primary-light text-xl flex items-center justify-center gap-2"
+    class="rounded-xl w-full text-center py-[4vh] {{if eq .ActivePage "request-appointment"}} bg-primary-light text-primary {{end}} hover:bg-primary-light text-xl flex items-center justify-center gap-2"
     href="/request-appointment"
   >
     <svg
@@ -67,9 +67,9 @@
 
     Request Appointment
   </a>
-  <hr class="bg-lightgray h-[.1rem] rounded-full w-full border-none my-4" />
+  <hr class="flex-none bg-lightgray h-[.1rem] rounded-full w-full border-none my-2" />
   <a
-    class="rounded-xl w-full text-center p-10 {{if eq .ActivePage "providers"}} bg-primary-light text-primary {{end}} hover:bg-primary-light  text-xl flex items-center justify-center gap-2"
+    class="rounded-xl w-full text-center py-[4vh] {{if eq .ActivePage "providers"}} bg-primary-light text-primary {{end}} hover:bg-primary-light  text-xl flex items-center justify-center gap-2"
     href="/providers"
   >
     <svg
