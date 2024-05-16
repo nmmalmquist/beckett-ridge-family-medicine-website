@@ -30,17 +30,12 @@ const initOpenMobileNavListener = () => {
       const navDrawer = document.getElementById("nav-drawer");
       navDrawer.style.transform = "translateY(0)";
       navMenuButton.innerHTML = X_ICON;
-      document.body.style.width = "100vw";
-      document.body.style.height = "100vh";
       document.body.style.overflow = "hidden";
       setIsOpened(true);
     } else {
-      console.log("here");
       const navDrawer = document.getElementById("nav-drawer");
       navDrawer.style.transform = "translateY(-100vh)";
       navMenuButton.innerHTML = HAMBURGER_ICON;
-      document.body.style.width = "";
-      document.body.style.height = "";
       document.body.style.overflow = "";
       setIsOpened(false);
     }
