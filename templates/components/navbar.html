@@ -1,6 +1,8 @@
 <nav
-  class="w-full bg-white shadow-2xl px-6 sm:px-12 py-3 flex justify-between items-center gap-10 relative z-20 h-24"
+  class="w-full sticky z-10 top-0"
 >
+{{ template "components/nav_drawer.html" . }}
+<div class="bg-white z-10 shadow-2xl px-6 sm:px-12 py-3 flex justify-between items-center gap-10 h-24 relative">
   <a class="h-12 block" href="/">
     <img src="/static/images/brf_logo.png" class="object-contain h-full" />
   </a>
@@ -117,7 +119,8 @@
       </button>
     </div>
   </div>
+</div>
+
 </nav>
-{{ template "components/nav_drawer.html" . }}
 
 <script src="/static/js/navbar.js"></script>
