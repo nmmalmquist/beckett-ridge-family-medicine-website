@@ -16,7 +16,7 @@ pipeline {
             steps {
                 container('docker'){
                     echo "---> Starting to build image! ${env.DOCKER_IMAGE}"
-                    sh "docker build . -t ${env.DOCKER_IMAGE}"
+                    sh "docker build . -t ${env.DOCKER_IMAGE} --no-cache"
                     sh "docker login -u ${env.DOCKER_HUB_USERNAME} -p ${DOCKER_HUB_ACCESS_TOKEN}"
                     sh "docker push ${env.DOCKER_IMAGE}"
                     echo "---> Finished building image and pushed to Dockerhub"
