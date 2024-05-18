@@ -8,7 +8,7 @@ module.exports = {
       primary: "royalblue",
       "primary-light": "#c4deff",
       secondary: "#005550",
-      offwhite: "#EEEEEE",
+      offwhite: "#F3F3F3",
       white: "#ffffff",
       dark: "#222831",
       lightgray: "#d3d3d3",

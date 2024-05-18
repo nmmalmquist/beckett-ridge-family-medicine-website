@@ -34,7 +34,7 @@ const initOpenMobileNavListener = () => {
       setIsOpened(true);
     } else {
       const navDrawer = document.getElementById("nav-drawer");
-      navDrawer.style.transform = "translateY(-100vh)";
+      navDrawer.style.transform = "translateY(-120vh)";
       navMenuButton.innerHTML = HAMBURGER_ICON;
       document.body.style.overflow = "";
       setIsOpened(false);
