@@ -53,7 +53,7 @@ func main() {
 	logger := log.New(os.Stdout, "http: ", log.LstdFlags)
 	middleware := logging(logger)(router)
 
-	ADDRESS := "0.0.0.0:8000"
+	ADDRESS := "localhost:8000"
 	fmt.Println("Started web server on", ADDRESS)
 	log.Fatal(http.ListenAndServe(ADDRESS, middleware))
 
