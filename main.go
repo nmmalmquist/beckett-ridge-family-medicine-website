@@ -48,12 +48,14 @@ func main() {
 	router.Handle("/", web.Action(index))
 	router.Handle("/providers", web.Action(providers))
 	router.Handle("/request-appointment", web.Action(requestAppointment))
+	// API routes
+	router.Handle("/api/request-appointment", web.Action(requestAppointmentPOST))
 
 	// Logging and tracing
 	logger := log.New(os.Stdout, "http: ", log.LstdFlags)
 	middleware := logging(logger)(router)
 
-	ADDRESS := "localhost:8000"
+	ADDRESS := "0.0.0.0:8000"
 	fmt.Println("Started web server on", ADDRESS)
 	log.Fatal(http.ListenAndServe(ADDRESS, middleware))
 

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/types"
@@ -38,6 +39,15 @@ func providers(r *http.Request) *web.Response {
 	return web.HTML(http.StatusOK, html, "pages/providers.html", nil, nil)
 }
 func requestAppointment(r *http.Request) *web.Response {
+	return web.HTML(http.StatusOK, html, "pages/request-appointment.html", nil, nil)
+}
+func requestAppointmentPOST(r *http.Request) *web.Response {
+	if (r.Method != "POST"){
+		return web.Data(http.StatusMethodNotAllowed,nil,nil)
+	}
+	data := r.Body
+	fmt.Println(data)
+	fmt.Println(data)
 	return web.HTML(http.StatusOK, html, "pages/request-appointment.html", nil, nil)
 }
 func error404() *web.Response{

@@ -63,6 +63,7 @@
           <form
             id="request-form"
             class="w-full max-w-[40rem] p-6 md:p-16 rounded-xl bg-offwhite mt-10 flex flex-col gap-2"
+            hx-post="/api/request-appointment"
           >
             <div
               class="my-2 border mx-auto w-full justify-center flex items-center rounded-md shadow-md text-dark"
@@ -179,6 +180,7 @@
       </section>
     </main>
   </body>
+  <script src="/static/js/htmx.min.js"></script>
   <script src="/static/js/index-post-load.js"></script>
   <script src="/static/js/request-appointment.js"></script>
 </html>
