@@ -1,0 +1,35 @@
+<div data-modal class="z-50 fixed top-0 bottom-0 right-0 left-0">
+  <dialog
+    open
+    class="z-10 fixed -translate-x-[50%] -translate-y-[50%] top-[50%] left-[50%] rounded-lg flex flex-col gap-6 text-center items-center p-8"
+  >
+    <div
+      class="{{.ModalIconBgColor}} w-20 h-20 rounded-full flex justify-center items-center text-white p-3"
+    >
+      {{.ModalIcon}}
+    </div>
+    <h3 class="text-4xl">{{.ModalTitle}}</h3>
+    <hr class="h-1 rounded-full bg-lightgray border-none w-full" />
+    <h4 class="text-2xl">{{.ModalSubtitle}}</h4>
+    <button
+      class="bg-primary text-white rounded-lg py-4 px-16 text-center mt-5"
+      data-modal-close
+      onclick="closeModal({{.ClearFormOnClose}})"
+    >
+      Close
+    </button>
+  </dialog>
+  <div
+    class="fixed top-0 bottom-0 right-0 left-0 bg-dark opacity-70 flex justify-center items-center"
+  ></div>
+</div>
+
+<script>
+  const closeModal = (clearForm) => {
+    const modal = document.querySelector("[data-modal]");
+    const closeButton = document.querySelector("[data-modal-close]");
+    const form = document.querySelector("form");
+    clearForm && form.reset();
+    modal.remove();
+  };
+</script>
