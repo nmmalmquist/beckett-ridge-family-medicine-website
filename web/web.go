@@ -2,6 +2,7 @@ package web
 
 import (
 	"bytes"
+	"encoding/json"
 	"io"
 	"io/fs"
 	"log"
@@ -11,6 +12,11 @@ import (
 )
 
 type Headers map[string]string
+
+type Error struct {
+	Status int
+	Message string
+}
 type Response struct {
 	// StatusCode
 	Status int
@@ -78,6 +84,24 @@ func HTML(status int, t *template.Template, templateName string, data interface{
 		Content:     &buf,
 		Headers:     headers,
 	}
+}
+
+func DataJSON(status int, v interface{}, headers Headers) *Response {
+
+	b, err := json.MarshalIndent(v, "", "  ")
+	if err != nil {
+		return Data(http.StatusInternalServerError, []byte("Internal Error"), headers)
+	}
+
+	return &Response{
+		Status:      status,
+		ContentType: "application/json",
+		Content:     bytes.NewBuffer(b),
+		Headers:     headers,
+	}
+}
+func ErrorJSON(status int, message string, headers Headers) *Response {
+	return DataJSON(status, Error{Status: status, Message: message}, headers)
 }
 
 // TemplateParseFSRecursive recursively parses all templates in the FS with the given extension.

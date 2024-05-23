@@ -26,12 +26,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!formIsValid) {
       return;
     }
+    // Encode data into url
+    const urlEncodedData = new URLSearchParams();
+    for (const [key, value] of formData) {
+      urlEncodedData.append(key, value);
+    }
+    // send api call
     const response = await fetch("/api/request-appointment", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: formData,
+      body: urlEncodedData,
     });
     const html = await response.text();
     const modalTarget = document.querySelector("[data-modal-target]");

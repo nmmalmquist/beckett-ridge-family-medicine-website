@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/types"
+	"nickmalmquist.com/beckett-ridge-family-medicine-website/types/api"
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/web"
 )
 
@@ -45,9 +46,19 @@ func requestAppointmentPOST(r *http.Request) *web.Response {
 	if (r.Method != "POST"){
 		return web.Data(http.StatusMethodNotAllowed,nil,nil)
 	}
-	data := r.Body
-	fmt.Println(data)
-	fmt.Println(data)
+	if parseErr := r.ParseForm(); parseErr != nil {
+		return web.ErrorJSON(http.StatusBadRequest,"Could not parse form.", nil)
+	}
+
+	payload := api.RequestAppointmentPayload{
+		Name: r.FormValue("full-name"),
+		Email: r.FormValue("email"),
+		PhoneNumber: r.FormValue("phone"),
+		Text: r.FormValue("text"),
+	}
+	fmt.Println(payload)
+	
+
 	modalProps := types.Modal{
 		Type: "success",
 		ModalTitle: "We received your request",
