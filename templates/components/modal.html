@@ -14,7 +14,7 @@
     <button
       class="bg-primary text-white rounded-lg py-4 px-16 text-center mt-5"
       data-modal-close
-      onclick="closeModal({{.ClearFormOnClose}})"
+      {{if eq .Type "success"}}data-reset-form{{end}}
     >
       Close
     </button>
@@ -23,13 +23,3 @@
     class="fixed top-0 bottom-0 right-0 left-0 bg-dark opacity-70 flex justify-center items-center"
   ></div>
 </div>
-
-<script>
-  const closeModal = (clearForm) => {
-    const modal = document.querySelector("[data-modal]");
-    const closeButton = document.querySelector("[data-modal-close]");
-    const form = document.querySelector("form");
-    clearForm && form.reset();
-    modal.remove();
-  };
-</script>

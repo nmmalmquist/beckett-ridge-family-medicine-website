@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./templates/**/*.{html,js}"],
+  content: ["./templates/**/*.{html,js}", "./static/**/*.{html,js}"],
+  safelist: ["bg-danger", "bg-success"],
   theme: {
     colors: {
       transparent: "transparent",
@@ -13,7 +14,7 @@ module.exports = {
       dark: "#222831",
       lightgray: "#d3d3d3",
       success: "green",
-      danger: "red",
+      danger: "#8B0000",
     },
     extend: {},
   },

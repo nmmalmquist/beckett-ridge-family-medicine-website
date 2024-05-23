@@ -48,20 +48,22 @@ func requestAppointmentPOST(r *http.Request) *web.Response {
 	data := r.Body
 	fmt.Println(data)
 	fmt.Println(data)
-	// modalProps := types.Modal{
-	// 	ModalTitle: "We received your request",
-	// 	ModalSubtitle: "We will be in contact with you soon",
-	// 	ModalIcon: staticHTML["check-icon"],
-	// 	ModalIconBgColor: "bg-success",
-	// 	ClearFormOnClose: true,
-	// }
 	modalProps := types.Modal{
-		ModalTitle: "An error occured",
-		ModalSubtitle: "Please try again later",
-		ModalIcon: staticHTML["x-icon"],
-		ModalIconBgColor: "bg-danger",
-		ClearFormOnClose: false,
+		Type: "success",
+		ModalTitle: "We received your request",
+		ModalSubtitle: "We will be in contact with you soon",
+		ModalIcon: staticHTML["check-icon"],
+		ModalIconBgColor: "bg-success",
+		ClearFormOnClose: true,
 	}
+	// modalProps := types.Modal{
+	// 	Type: "error",
+	// 	ModalTitle: "An error occured",
+	// 	ModalSubtitle: "Please try again later",
+	// 	ModalIcon: staticHTML["x-icon"],
+	// 	ModalIconBgColor: "bg-danger",
+	// 	ClearFormOnClose: false,
+	// }
 	return web.HTML(http.StatusOK, html, "components/modal.html", modalProps, nil)
 }
 func error404() *web.Response{
