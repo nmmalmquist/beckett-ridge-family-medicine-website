@@ -71,7 +71,7 @@
             </div>
             <a
               href="/request-appointment"
-              class="bg-primary rounded px-6 py-4 text-center text-white max-w-72 w-full hover:bg-secondary transition-all duration-300"
+              class="bg-primary rounded px-6 py-4 text-center text-white max-w-72 w-full hover:bg-secondary transition-all"
             >
               Request Appointment
             </a>
@@ -92,7 +92,7 @@
           </p>
           <div class="flex flex-row gap-6">
             <button
-              class="bg-primary rounded px-6 py-4 text-center text-white max-w-72 w-full hover:bg-secondary transition-all duration-300"
+              class="bg-primary rounded px-6 py-4 text-center text-white max-w-72 w-full hover:bg-secondary transition-all"
             >
               Request Appointment
             </button>
@@ -101,13 +101,13 @@
               target="_blank"
               rel="nofollow"
               download
-              class="border-2 border-primary text-primary rounded px-6 py-4 text-center max-w-72 w-full hover:bg-primary hover:text-white transition-all duration-300"
+              class="border-2 border-primary text-primary rounded px-6 py-4 text-center max-w-72 w-full-cotransition-colors hover:bg-primary hover:text-white hover:text-white transition-all"
             >
               Patient Registration Form
             </a>
           </div>
         </div>
-        <hr class="w-[80%] h-1 bg-lightgray border-none rounded-full" />
+        <hr class="w-[80%] h-1 bg-primary border-none rounded-full" />
         <div class="flex flex-col items-center gap-6">
           <svg
             fill="currentColor"
@@ -160,6 +160,160 @@
           </div>
           {{end}}
         </div>
+      </section>
+      <section class="px-6 py-20 sm:px-12 md:px-16 lg:px-32">
+        <div class="grid place-items-center">
+          <div class="w-full mx-auto rounded border">
+            <div class="bg-white p-10 shadow-sm flex flex-col gap-4">
+              <h3 class="text-2xl font-medium text-gray-800">
+                Frequently Asked Questions
+              </h3>
+              <div class="h-1 w-full mx-auto border-b my-3"></div>
+
+              <!-- What is term -->
+              <div
+                class="transition-colors hover:bg-primary hover:text-white border border-dark rounded-lg"
+              >
+                <!-- header -->
+                <div
+                  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4"
+                >
+                  <h3>What are our hours?</h3>
+                </div>
+                <!-- Content -->
+                <div
+                  class="accordion-content px-5 pt-0 overflow-hidden max-h-0"
+                >
+                  <p class="leading-6 font-light sm:pl-9 pb-5">
+                    Our regular clinic hours are 8AM-5PM, Monday through Friday.
+                    Although the providers do not see patients between 12pm-1pm,
+                    our office is open during that time.
+                  </p>
+                </div>
+              </div>
+
+              <!-- When to use Accordion Components -->
+              <div
+                class="transition-colors hover:bg-primary hover:text-white border border-dark rounded-lg"
+              >
+                <!-- header -->
+                <div
+                  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4"
+                >
+                  <h3>Do you take new patients?</h3>
+                </div>
+                <!-- Content -->
+                <div
+                  class="accordion-content px-5 pt-0 overflow-hidden max-h-0"
+                >
+                  <p class="leading-6 font-light sm:pl-9 pb-5">
+                    Yes! Please call our front desk and introduce yourself and
+                    let them know.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Accordion Wrapper -->
+              <div
+                class="transition-colors hover:bg-primary hover:text-white border border-dark rounded-lg"
+              >
+                <!-- header -->
+                <div
+                  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4"
+                >
+                  <h3>What can I do if I am ill?</h3>
+                </div>
+                <!-- Content -->
+                <div
+                  class="accordion-content px-5 pt-0 overflow-hidden max-h-0"
+                >
+                  <p class="leading-6 font-light sm:pl-9 pb-5">
+                    If you are feeling ill, we ask that you call our office
+                    during regular office hours, (Monday-Friday 8AM to 5PM) and
+                    speak to our front office staff, who will instruct you on
+                    your options of care. Depending on your symptoms, you may be
+                    offered an appointment, or if symptoms are serious in
+                    nature, it may be recommended that you go to the Emergency
+                    Room. BRFM is prepared to meet your unexpected medical needs
+                    even when your preferred provider is not available. If you
+                    have a non-life-threatening illness that needs immediate
+                    attention, another one of our providers will be happy to see
+                    you for a same-day appointment. We ask that you always
+                    contact our office when possible before going to the
+                    emergency room. We have a provider that is on-call 24 hours
+                    a day, 7 days a week to answer your emergency calls.
+                    Emergency Room visits can often times be avoided by speaking
+                    with one of our providers first. If you or someone under
+                    your care is experiencing a life-threatening emergency, call
+                    911. Please obtain a copy of all tests taken and contact
+                    your physician as soon as possible after an emergency room
+                    visit to determine the best course of treatment.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Accordion Wrapper -->
+              <div
+                class="transition-colors hover:bg-primary hover:text-white border border-dark rounded-lg"
+              >
+                <!-- header -->
+                <div
+                  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4"
+                >
+                  <h3>
+                    I received a bill and have questions about it. Who can I
+                    call for assistance?
+                  </h3>
+                </div>
+                <!-- Content -->
+                <div
+                  class="accordion-content px-5 pt-0 overflow-hidden max-h-0"
+                >
+                  <p class="leading-6 font-light sm:pl-9 pb-5">
+                    Tammy is no longer with us and we now outsource our billing.
+                    If patients have a question about their bill they can call
+                    877-704-4159
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .accordion-content {
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+          }
+        </style>
+
+        <script>
+          const accordionHeader =
+            document.querySelectorAll(".accordion-header");
+          accordionHeader.forEach((header) => {
+            header.addEventListener("click", function () {
+              const accordionContent =
+                header.parentElement.querySelector(".accordion-content");
+              let accordionMaxHeight = accordionContent.style.maxHeight;
+
+              // Condition handling
+              if (
+                accordionMaxHeight == "0px" ||
+                accordionMaxHeight.length == 0
+              ) {
+                accordionContent.style.maxHeight = `${
+                  accordionContent.scrollHeight + 32
+                }px`;
+                header.parentElement.classList.add("bg-primary", "text-white");
+              } else {
+                accordionContent.style.maxHeight = `0px`;
+                header.parentElement.classList.remove(
+                  "bg-primary",
+                  "text-white"
+                );
+              }
+            });
+          });
+        </script>
       </section>
       <div class="fixed bottom-10 right-10 sm:hidden z-[5] h-20 w-20">
         {{template "components/mobile_phone_button.html"}}
