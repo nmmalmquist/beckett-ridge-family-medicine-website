@@ -4,10 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/css/output.css" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/static/favicon/site.webmanifest">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/static/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/static/favicon/site.webmanifest" />
     <title>Beckett Ridge Family Medicine</title>
     <style>
       .banner-animation {
@@ -55,11 +69,12 @@
               </h1>
               <h2 class="text-4xl text-secondary font-bold">Primary Care</h2>
             </div>
-            <button
+            <a
+              href="/request-appointment"
               class="bg-primary rounded px-6 py-4 text-center text-white max-w-72 w-full hover:bg-secondary transition-all duration-300"
             >
               Request Appointment
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -148,7 +163,7 @@
       </section>
       <div class="fixed bottom-10 right-10 sm:hidden z-[5] h-20 w-20">
         {{template "components/mobile_phone_button.html"}}
-    </div>
+      </div>
     </main>
     {{template "components/footer.html"}}
   </body>

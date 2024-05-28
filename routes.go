@@ -37,6 +37,9 @@ func index(r *http.Request) *web.Response {
 func providers(r *http.Request) *web.Response {
 	return web.HTML(http.StatusOK, html, "pages/providers.html", nil, nil)
 }
+func privacyPolicy(r *http.Request) *web.Response {
+	return web.HTML(http.StatusOK, html, "pages/privacy-policy.html", nil, nil)
+}
 func requestAppointment(r *http.Request) *web.Response {
 	return web.HTML(http.StatusOK, html, "pages/request-appointment.html", nil, nil)
 }
