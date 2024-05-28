@@ -1,68 +1,157 @@
 <!DOCTYPE html>
 <html lang="en" class="bg-white">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Providers - Beckett Ridge Family Medicine</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/static/favicon/site.webmanifest">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/static/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/static/favicon/site.webmanifest" />
     <link rel="stylesheet" href="/static/css/output.css" />
     <script src="/static/js/index-pre-load.js"></script>
-</head>
-<body class="relative">
+  </head>
+  <body class="relative">
     {{ template "components/navbar.html" . }}
     <main class="mt-24 flex flex-col gap-10">
-        <div style="background-image: url('/static/images/doc-and-kid.jpeg');" class="relative w-full bg-dark min-h-72 rounded-b-lg text-center text-4xl text-white tracking-widest flex items-center justify-center bg-cover bg-center">
-            <div class="absolute bottom-0 top-0 left-0 right-0 opacity-75 bg-dark"></div>
-            <h1 class="z-10">Our Providers</h1>
-        </div>
-        <ul class="px-6 sm:px-16 flex flex-col gap-6">
-            <li class="rounded flex flex-col lg:flex-row py-10 px-6 md:px-20 justify-center items-center lg:items-start text-center lg:text-start gap-10 lg:gap-20 bg-offwhite">
-                <div class="max-w-80 w-full">
-                    <img src="/static/images/chris.jpeg" class="w-full rounded"/>
-                </div>
-                <div class="flex-1">
-                    <h2 class="text-primary text-4xl mb-6">Dr. Chris Diatte M.D</h2>
-                    <p>Dr. Diatte was born and raised in San Jose, CA. He graduated from James Lyck High School and then pursued a Bachelor of Science in Molecular Biology at San Jose State University. He graduated in 1985 and the same year was accepted to the Oral Roberts University School of Medicine, graduating in 1989. Dr. Diatte completed his first year of residency at City of Faith Hospital in Tulsa before transferring to the Medical College of Ohio to complete his training.</p>
-                    <br/>
-                    <p>After relocating his family to the Cincinnati area in 1993, Dr. Diatte completed a Sports Medicine Fellowship with St. Elizabeth’s Hospital in Dayton, Ohio. He became Board-Certified in Sports Medicine and used his passion while his kids were growing up to volunteer and work with various high school athletic teams. Dr. Diatte also is Board Certified in Family Practice and has been with Beckett Ridge Family Medicine since 1995.</p>
-                    <br/>
-                    <p>In his free time Dr. Diatte enjoys spending time with his wife, Koreen, and their six children. He also loves being called Grandpa by his grandchildren. During the summer months he enjoys time away at the lake skiing and wake surfing.</p>
-                </div>
-            </li>
-            <li class="rounded flex flex-col lg:flex-row py-10 px-6 md:px-20 justify-center items-center lg:items-start text-center lg:text-start gap-10 lg:gap-20 bg-offwhite">
-                <div class="max-w-80 w-full">
-                    <img src="/static/images/taylor.jpeg" class="w-full rounded"/>
-                </div>
-                <div class="flex-1">
-                    <h2 class="text-primary text-4xl mb-6">Taylor Weeks, CNP-F</h2>
-                    <p>Taylor is a Board-Certified Family Nurse Practitioner, credentialed through the Academy of Nurse Practitioners. She earned a Bachelor of Science in Nursing from Northern Kentucky University and went on to receive a Master’s Degree as a Family Nurse Practitioner from Maryville University.</p>
-                    <br/>
-                    <p>After Taylor completed some of her clinical experience with Beckett Ridge Family Medicine, she signed on to join our team. Prior to joining our team, she enjoyed six years as a Registered Nurse in the Neonatal Intensive Care Unit (NICU) at Cincinnati Children’s Hospital. Her philosophy as a provider is to get to know each patient and respect them as an individual. As a former collegiate golfer, she believes in teamwork. She now teams up with her patients and works alongside each one to the help them meet their individual health care goals.</p>
-                    <br/>
-                    <p>In her free time Taylor enjoys spending time with her husband and her two black labs. She enjoys traveling, playing golf, and taking walks with her dogs.</p>
-                </div>
-            </li>
-            <li class="rounded flex flex-col lg:flex-row py-10 px-6 md:px-20 justify-center items-center lg:items-start text-center lg:text-start gap-10 lg:gap-20 bg-offwhite">
-                <div class="max-w-80 w-full">
-                    <img src="/static/images/kim.jpeg" class="w-full rounded"/>
-                </div>
-                <div class="flex-1">
-                    <h2 class="text-primary text-4xl mb-6">Kimberley Butts CNP-F</h2>
-                    <p>Kim Butts is a Board-Certified Family Nurse Practitioner, credentialed through the Academy of Nurse Practitioners. Kim graduated with her Diploma of Nursing from Christ College of Nursing in 2003. She received both her Bachelor of Science and Masters of Science degrees in Nursing from the University of Cincinnati.</p>
-                    <br/>
-                    <p>Kim began her nursing career at the Christ Hospital Emergency Department in 2003. After graduating with her Masters of Science Degree, she began her career as a Nurse Practitioner at St. Elizabeth Hospital Emergency Room Department and Doctor’s Urgent Care Offices. She has cared for a wide range of patients and in 2016 was delighted to accept a position at Beckett Ridge Family Medicine where she could integrate her compassion and knowledge of medicine into a long-term relationship with her patients.</p>
-                    <br/>
-                    <p>Kim enjoys many outdoor activities including camping, hiking and boating. Most importantly, Kim enjoys spending time with her daughter, Peyton. They both share a love of horses and spend many hours riding, showing, and jumping their horses, Max and Barron.</p>
-                </div>
-            </li>
-        </ul>
-        <div class="fixed bottom-10 right-10 sm:hidden z-[5] h-20 w-20">
-            {{template "components/mobile_phone_button.html"}}
-        </div>
+      <div
+        style="background-image: url('/static/images/doc-and-kid.jpeg')"
+        class="relative w-full bg-dark min-h-72 rounded-b-lg text-center text-4xl text-white tracking-widest flex items-center justify-center bg-cover bg-center"
+      >
+        <div
+          class="absolute bottom-0 top-0 left-0 right-0 opacity-75 bg-dark"
+        ></div>
+        <h1 class="z-10">Our Providers</h1>
+      </div>
+      <ul class="px-6 sm:px-16 flex flex-col gap-6">
+        <li
+          class="rounded flex flex-col lg:flex-row py-10 px-6 md:px-20 justify-center items-center lg:items-start text-center lg:text-start gap-10 lg:gap-20 bg-offwhite"
+        >
+          <div class="max-w-80 w-full">
+            <img src="/static/images/chris.jpeg" class="w-full rounded" />
+          </div>
+          <div class="flex-1">
+            <h2 class="text-primary text-4xl mb-6">Dr. Chris Diatte M.D</h2>
+            <p>
+              Dr. Diatte was born and raised in San Jose, CA. He graduated from
+              James Lyck High School and then pursued a Bachelor of Science in
+              Molecular Biology at San Jose State University. He graduated in
+              1985 and the same year was accepted to the Oral Roberts University
+              School of Medicine, graduating in 1989. Dr. Diatte completed his
+              first year of residency at City of Faith Hospital in Tulsa before
+              transferring to the Medical College of Ohio to complete his
+              training.
+            </p>
+            <br />
+            <p>
+              After relocating his family to the Cincinnati area in 1993, Dr.
+              Diatte completed a Sports Medicine Fellowship with St. Elizabeth’s
+              Hospital in Dayton, Ohio. He became Board-Certified in Sports
+              Medicine and used his passion while his kids were growing up to
+              volunteer and work with various high school athletic teams. Dr.
+              Diatte also is Board Certified in Family Practice and has been
+              with Beckett Ridge Family Medicine since 1995.
+            </p>
+            <br />
+            <p>
+              In his free time Dr. Diatte enjoys spending time with his wife,
+              Koreen, and their six children. He also loves being called Grandpa
+              by his grandchildren. During the summer months he enjoys time away
+              at the lake skiing and wake surfing.
+            </p>
+          </div>
+        </li>
+        <li
+          class="rounded flex flex-col lg:flex-row py-10 px-6 md:px-20 justify-center items-center lg:items-start text-center lg:text-start gap-10 lg:gap-20 bg-offwhite"
+        >
+          <div class="max-w-80 w-full">
+            <img src="/static/images/taylor.jpeg" class="w-full rounded" />
+          </div>
+          <div class="flex-1">
+            <h2 class="text-primary text-4xl mb-6">Taylor Weeks, CNP-F</h2>
+            <p>
+              Taylor is a Board-Certified Family Nurse Practitioner,
+              credentialed through the Academy of Nurse Practitioners. She
+              earned a Bachelor of Science in Nursing from Northern Kentucky
+              University and went on to receive a Master’s Degree as a Family
+              Nurse Practitioner from Maryville University.
+            </p>
+            <br />
+            <p>
+              After Taylor completed some of her clinical experience with
+              Beckett Ridge Family Medicine, she signed on to join our team.
+              Prior to joining our team, she enjoyed six years as a Registered
+              Nurse in the Neonatal Intensive Care Unit (NICU) at Cincinnati
+              Children’s Hospital. Her philosophy as a provider is to get to
+              know each patient and respect them as an individual. As a former
+              collegiate golfer, she believes in teamwork. She now teams up with
+              her patients and works alongside each one to the help them meet
+              their individual health care goals.
+            </p>
+            <br />
+            <p>
+              In her free time Taylor enjoys spending time with her husband and
+              her two black labs. She enjoys traveling, playing golf, and taking
+              walks with her dogs.
+            </p>
+          </div>
+        </li>
+        <li
+          class="rounded flex flex-col lg:flex-row py-10 px-6 md:px-20 justify-center items-center lg:items-start text-center lg:text-start gap-10 lg:gap-20 bg-offwhite"
+        >
+          <div class="max-w-80 w-full">
+            <img src="/static/images/kim.jpeg" class="w-full rounded" />
+          </div>
+          <div class="flex-1">
+            <h2 class="text-primary text-4xl mb-6">Kimberley Butts CNP-F</h2>
+            <p>
+              Kim Butts is a Board-Certified Family Nurse Practitioner,
+              credentialed through the Academy of Nurse Practitioners. Kim
+              graduated with her Diploma of Nursing from Christ College of
+              Nursing in 2003. She received both her Bachelor of Science and
+              Masters of Science degrees in Nursing from the University of
+              Cincinnati.
+            </p>
+            <br />
+            <p>
+              Kim began her nursing career at the Christ Hospital Emergency
+              Department in 2003. After graduating with her Masters of Science
+              Degree, she began her career as a Nurse Practitioner at St.
+              Elizabeth Hospital Emergency Room Department and Doctor’s Urgent
+              Care Offices. She has cared for a wide range of patients and in
+              2016 was delighted to accept a position at Beckett Ridge Family
+              Medicine where she could integrate her compassion and knowledge of
+              medicine into a long-term relationship with her patients.
+            </p>
+            <br />
+            <p>
+              Kim enjoys many outdoor activities including camping, hiking and
+              boating. Most importantly, Kim enjoys spending time with her
+              daughter, Peyton. They both share a love of horses and spend many
+              hours riding, showing, and jumping their horses, Max and Barron.
+            </p>
+          </div>
+        </li>
+      </ul>
+      <div class="fixed bottom-10 right-10 sm:hidden z-[5] h-20 w-20">
+        {{template "components/mobile_phone_button.html"}}
+      </div>
+      {{template "components/footer.html"}}
     </main>
-</body>
-<script src="/static/js/index-post-load.js"></script>
+  </body>
+  <script src="/static/js/index-post-load.js"></script>
 </html>
