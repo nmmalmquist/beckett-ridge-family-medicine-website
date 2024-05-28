@@ -8,6 +8,8 @@ import (
 	"os"
 	"text/template"
 
+	"github.com/joho/godotenv"
+	"nickmalmquist.com/beckett-ridge-family-medicine-website/email"
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/web"
 )
 
@@ -22,9 +24,13 @@ var (
 	staticHTML map[string]string
 	//go:embed all:static/*
 	staticFS embed.FS
+
+	// Services
+	emailService *email.EmailService
 )
 
 func main() {
+	godotenv.Load()
 
 	var err error
 	// read in html for static components it map for use in data for templates
@@ -40,10 +46,13 @@ func main() {
 		panic(err)
 	}
 
+	//Add Services
+	initServices()
+
 	// Add Routes
 	router := http.NewServeMux()
 	// Allows access to images, css, and js files
-	router.Handle("/static/",http.FileServer(http.FS(staticFS)))
+	router.Handle("/static/", http.FileServer(http.FS(staticFS)))
 	// Pages
 	router.Handle("/", web.Action(index))
 	router.Handle("/providers", web.Action(providers))
@@ -59,4 +68,8 @@ func main() {
 	fmt.Println("Started web server on", ADDRESS)
 	log.Fatal(http.ListenAndServe(ADDRESS, middleware))
 
+}
+
+func initServices() {
+	emailService = email.CreateEmailService()
 }
