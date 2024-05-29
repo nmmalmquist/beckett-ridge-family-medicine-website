@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/static/css/carousel.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/static/css/output.css" />
     <link
       rel="apple-touch-icon"
@@ -101,7 +102,7 @@
               target="_blank"
               rel="nofollow"
               download
-              class="border-2 border-primary text-primary rounded px-6 py-4 text-center max-w-72 w-full-cotransition-colors hover:bg-primary hover:text-white hover:text-white transition-all"
+              class="border-2 border-primary text-primary rounded px-6 py-4 text-center max-w-72 w-full-cotransition-colors hover:bg-primary hover:text-white transition-all"
             >
               Patient Registration Form
             </a>
@@ -161,13 +162,11 @@
           {{end}}
         </div>
       </section>
-      <section class="px-6 py-20 sm:px-12 md:px-16 lg:px-32">
+      <section class="px-6 pb-20 sm:px-12 md:px-16 lg:px-32">
         <div class="grid place-items-center">
           <div class="w-full mx-auto rounded border">
             <div class="bg-white p-10 shadow-sm flex flex-col gap-4">
-              <h3 class="text-2xl font-medium text-gray-800">
-                Frequently Asked Questions
-              </h3>
+              <h3 class="text-2xl">Frequently Asked Questions</h3>
               <div class="h-1 w-full mx-auto border-b my-3"></div>
 
               <!-- What is term -->
@@ -176,9 +175,12 @@
               >
                 <!-- header -->
                 <div
-                  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4"
+                  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4 justify-between"
                 >
                   <h3>What are our hours?</h3>
+                  <div class="size-6 flex-none">
+                    {{template "components/chevron_down_icon.html"}}
+                  </div>
                 </div>
                 <!-- Content -->
                 <div
@@ -198,9 +200,12 @@
               >
                 <!-- header -->
                 <div
-                  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4"
+                  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4 justify-between"
                 >
                   <h3>Do you take new patients?</h3>
+                  <div class="size-6 flex-none">
+                    {{template "components/chevron_down_icon.html"}}
+                  </div>
                 </div>
                 <!-- Content -->
                 <div
@@ -219,9 +224,12 @@
               >
                 <!-- header -->
                 <div
-                  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4"
+                  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4 justify-between"
                 >
                   <h3>What can I do if I am ill?</h3>
+                  <div class="size-6 flex-none">
+                    {{template "components/chevron_down_icon.html"}}
+                  </div>
                 </div>
                 <!-- Content -->
                 <div
@@ -258,12 +266,16 @@
               >
                 <!-- header -->
                 <div
-                  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4"
+                  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4 justify-between"
                 >
                   <h3>
                     I received a bill and have questions about it. Who can I
                     call for assistance?
                   </h3>
+
+                  <div class="size-6 flex-none">
+                    {{template "components/chevron_down_icon.html"}}
+                  </div>
                 </div>
                 <!-- Content -->
                 <div
@@ -315,6 +327,99 @@
           });
         </script>
       </section>
+      <section class="px-6 pb-20 sm:px-12 md:px-16 lg:px-32">
+        <h1 class="text-4xl text-primary text-center mb-6">
+          Health is Not Just Absence of Disease But Is Living With Vitality
+        </h1>
+        <h2 class="text-center mb-20">
+          Beckett Ridge Family Medicine provides a full range of primary care
+          services ranging anywhere from acute care to preventative care, as
+          well as chronic disease management. We see patients of all ages
+          including newborns. The following list Is a sample of services we
+          provide:
+        </h2>
+        <div class="flex flex-row justify-center items-center gap-10 flex-wrap">
+          {{range $i, $a := .Articles}}
+          <div
+            class="w-min rounded-xl {{if isEven $i }} bg-primary {{else}} bg-secondary {{end}}"
+          >
+            {{template "components/article_teaser.html" $a}}
+          </div>
+          {{end}}
+        </div>
+      </section>
+      <section class="bg-secondary text-white">
+        <div
+          class="px-6 py-20 sm:px-12 md:px-16 lg:px-32 flex flex-col lg:flex-row items-center justify-center lg:justify-between"
+        >
+          <div class="text-center">
+            <h3 class="text-lg">Client Feedback</h3>
+            <h1 class="text-4xl mb-6">What our patients say</h1>
+          </div>
+
+          <div class="carousel rounded-box max-w-[35rem] w-full gap-8">
+            <div class="carousel-item w-full">
+              <div class="bg-offwhite rounded-2xl p-10 text-dark flex flex-col">
+                <p>
+                  I have been seen and treated very well by Dr. Diatte, as well
+                  as the family nurse practitioners Kim and Taylor. The office
+                  is very clean, has a children's game thing on the wall for
+                  those that need it, and the wait is always short. On the
+                  occasions I've needed to be seen urgently for illness as
+                  opposed to checkups/maintenance, I have never been told that
+                  they couldn't fit me into their schedule. I see that they are
+                  progressively inclusive of diversity, providing both
+                  opportunities for employment and a safe environment for
+                  patients. I am a picky registered nurse and patient and wont
+                  hesitate to fire a doctor that doesn't make the grade. The
+                  providers I've seen in this office all receive an A+!
+                </p>
+                <br />
+                <span class="text-right w-full">Tony</span>
+              </div>
+            </div>
+            <div class="carousel-item w-full">
+              <div class="bg-offwhite rounded-2xl p-10 text-dark flex flex-col">
+                <p>
+                  Messaged Beckett Ridge Family Medicine at 3:00 AM Thursday
+                  because I was up all night with worrisome, flu-like symptoms.
+                  By 8:30 that morning, I was scheduled for an appointment. When
+                  I arrived, I checked in from my car and described my symptoms
+                  to the nurse over the phone. Within 3 minutes, I was ushered
+                  into the office through a separate entrance and met by Dr.
+                  Diatte. Everyone in the office was friendly, upbeat, and in
+                  PPE. They were obviously concerned for my well-being. The
+                  doctor's exam was thorough and methodical. He covered every
+                  possible diagnosis and explained in detail his thought
+                  process. By 1:00 PM I had been tested for and received the
+                  results of strep, pneumonia (x-ray complete), flu, and
+                  COVID-19 tests. The pharmacy had my meds ready by the time I
+                  had left the x-ray facility. Absolutely phenomenal service in
+                  every way, and it's been that way for the last 28 years.
+                  Thanks to everyone at Beckett Ridge Family Medicine for your
+                  care and professionalism!
+                </p>
+                <br />
+                <span class="text-right w-full">Bob</span>
+              </div>
+            </div>
+            <div class="carousel-item w-full">
+              <div class="bg-offwhite rounded-2xl p-10 text-dark flex flex-col">
+                <p>
+                  I have been a patient for almost 25 years. The staff from the
+                  front desk to the nurses, Nurse Practitioners and Doctors have
+                  been courteous, caring and extraordinary in every way. The
+                  technology tools they regularly improve provide valuable
+                  access to make appointments, review test results, etc. I can't
+                  imagine going to another practice for my medical care.
+                </p>
+                <br />
+                <span class="text-right w-full">Bryson</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <div class="fixed bottom-10 right-10 sm:hidden z-[5] h-20 w-20">
         {{template "components/mobile_phone_button.html"}}
       </div>
@@ -322,4 +427,40 @@
     {{template "components/footer.html"}}
   </body>
   <script src="/static/js/index-post-load.js"></script>
+  <script>
+    let slideIndex = 0;
+    setTimeout(showSlides, 2000);
+
+    let stopCarousel = false;
+    const carouselEl = document.querySelector(".carousel");
+    carouselEl.addEventListener("mouseenter", () => {
+      stopCarousel = true;
+    });
+    carouselEl.addEventListener("mouseleave", () => {
+      stopCarousel = false;
+    });
+
+    async function showSlides() {
+      const { width } = carouselEl.getBoundingClientRect();
+      if (stopCarousel) {
+        return await setTimeout(showSlides, 8000);
+      }
+      let i;
+      let slides = document.getElementsByClassName("carousel-item");
+      for (let i = 0; i < 2; i++) {
+        slides[i].classList.add("transition-all", "duration-[2s]");
+        slides[i].style.transform = `translateX(-${width + 32}px)`;
+      }
+      await setTimeout(() => {
+        slides[slides.length - 1].after(slides[0]);
+        for (let i = 0; i < 2; i++) {
+          slides[i].classList.remove("transition-all", "duration-[2s]");
+          slides[i].style.transform = ``;
+        }
+      }, 4000);
+      if (!stopCarousel) {
+        await setTimeout(showSlides, 8000); // Change image every 2 seconds
+      }
+    }
+  </script>
 </html>

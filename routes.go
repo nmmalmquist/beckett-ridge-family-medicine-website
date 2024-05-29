@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	"nickmalmquist.com/beckett-ridge-family-medicine-website/constants"
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/types"
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/types/api"
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/web"
@@ -17,6 +18,7 @@ func index(r *http.Request) *web.Response {
 		ActivePage string
 		CardFacts  []types.CardFact
 		TabFacts   []types.TabFact
+		Articles   []types.Article
 	}
 
 	data := IndexPageData{
@@ -31,6 +33,8 @@ func index(r *http.Request) *web.Response {
 			{Icon: staticHTML["award-icon"], Title: "180,000+ successful patient visits", ColorClass: "secondary"},
 			{Icon: staticHTML["people-icon"], Title: "More than 2000 happy patients", ColorClass: "primary"},
 		},
+		Articles: *constants.GetArticlesFromLibrary(),
+
 	}
 	return web.HTML(http.StatusOK, html, "pages/index.html", data, nil)
 }

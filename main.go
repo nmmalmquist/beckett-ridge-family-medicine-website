@@ -41,7 +41,13 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	html, err = web.TemplateParseFSRecursive(templateFS, ".html", true, nil)
+	// Specify custom functions to use inside html templates
+	funcMap := template.FuncMap{
+		"isEven": func(i int) bool {
+			return i%2 == 0
+		},
+	}
+	html, err = web.TemplateParseFSRecursive(templateFS, ".html", true, funcMap)
 	if err != nil {
 		panic(err)
 	}
@@ -65,7 +71,7 @@ func main() {
 	logger := log.New(os.Stdout, "http: ", log.LstdFlags)
 	middleware := logging(logger)(router)
 
-	ADDRESS := "0.0.0.0:8000"
+	ADDRESS := "localhost:8000"
 	fmt.Println("Started web server on", ADDRESS)
 	log.Fatal(http.ListenAndServe(ADDRESS, middleware))
 
