@@ -1104,6 +1104,10 @@ video {
   max-width: 35rem;
 }
 
+.max-w-64 {
+  max-width: 16rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1319,6 +1323,10 @@ video {
 
 .gap-12 {
   gap: 3rem;
+}
+
+.gap-24 {
+  gap: 6rem;
 }
 
 .space-x-10 > :not([hidden]) ~ :not([hidden]) {
@@ -2037,6 +2045,10 @@ video {
 
 .pb-20 {
   padding-bottom: 5rem;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
 }
 
 .text-left {
