@@ -350,11 +350,11 @@
       </section>
       <section class="bg-secondary text-white">
         <div
-          class="px-6 py-20 sm:px-12 md:px-16 lg:px-32 flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-10"
+          class="px-6 py-20 sm:px-12 md:px-16 lg:px-32 flex flex-col lg:flex-row items-center justify-center lg:justify-around gap-10"
         >
           <div class="text-center">
-            <h3 class="text-lg">Client Feedback</h3>
-            <h1 class="text-4xl mb-6">What our patients say</h1>
+            <h3 class="text-2xl">Client Feedback</h3>
+            <h1 class="text-5xl mb-6">What our patients say</h1>
           </div>
           <div class="max-w-[35rem] w-full">
             <div class="slideshow pb-10 bg-white">
@@ -444,6 +444,18 @@
             </div>
           </div>
         </div>
+      </section>
+      <section
+        class="px-6 py-20 sm:px-12 md:px-16 lg:px-32 flex flex-col items-center"
+      >
+        <h1 class="text-4xl text-center mb-6">Office Location</h1>
+        <iframe
+          loading="lazy"
+          src="https://maps.google.com/maps?q=4870%20Wunnenberg%20%20Way%2C%20West%20Chester%2C%20OH&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near"
+          title="4870 Wunnenberg  Way, West Chester, OH"
+          aria-label="4870 Wunnenberg  Way, West Chester, OH"
+          class="w-full aspect-video max-w-[70rem]"
+        ></iframe>
       </section>
       <div class="fixed bottom-10 right-10 sm:hidden z-[5] h-20 w-20">
         {{template "components/mobile_phone_button.html"}}
