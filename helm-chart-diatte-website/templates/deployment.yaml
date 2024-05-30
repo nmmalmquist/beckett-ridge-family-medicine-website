@@ -33,4 +33,15 @@ spec:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
+          env:
+          - name: AWS_ACCESS_KEY_ID
+            value: "MOCK"
+          - name: AWS_SECRET_ACCESS_KEY
+            value: "MOCK"
+          - name: AWS_REGION
+            value: "MOCK"
+          - name: FROM_EMAIL
+            value: "MOCK"
+          - name: REQUEST_APPT_TO_EMAIL
+            value: "MOCK"
 
