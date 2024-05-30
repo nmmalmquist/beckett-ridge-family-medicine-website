@@ -24,6 +24,8 @@ var (
 	staticHTML map[string]string
 	//go:embed all:static/*
 	staticFS embed.FS
+	//go:embed robots.txt
+	robotsContent string
 
 	// Services
 	emailService *email.EmailService
@@ -66,6 +68,9 @@ func main() {
 	router.Handle("/privacy-policy", web.Action(privacyPolicy))
 	// API routes
 	router.Handle("/api/request-appointment", web.Action(requestAppointmentPOST))
+	
+	// Utility pages
+	router.Handle("/robots.txt", web.Action(robotsTxt))
 
 	// Logging and tracing
 	logger := log.New(os.Stdout, "http: ", log.LstdFlags)

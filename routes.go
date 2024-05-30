@@ -54,7 +54,7 @@ func requestAppointmentPOST(r *http.Request) *web.Response {
 	if parseErr := r.ParseForm(); parseErr != nil {
 		return web.ErrorJSON(http.StatusBadRequest, "Could not parse form.", nil)
 	}
-
+	
 	payload := api.RequestAppointmentPayload{
 		Name:        r.FormValue("full-name"),
 		Email:       r.FormValue("email"),
@@ -62,7 +62,7 @@ func requestAppointmentPOST(r *http.Request) *web.Response {
 		Text:        r.FormValue("text"),
 	}
 	_, err := emailService.SendAppointmentRequest(payload)
-
+	
 	var modalProps types.Modal
 	if err != nil {
 		modalProps = types.Modal{
@@ -73,20 +73,24 @@ func requestAppointmentPOST(r *http.Request) *web.Response {
 			ModalIconBgColor: "bg-danger",
 			ClearFormOnClose: false,
 		}
-
-	} else {
-		modalProps = types.Modal{
-			Type:             "success",
-			ModalTitle:       "We received your request",
-			ModalSubtitle:    "We will be in contact with you soon",
-			ModalIcon:        staticHTML["check-icon"],
+		
+		} else {
+			modalProps = types.Modal{
+				Type:             "success",
+				ModalTitle:       "We received your request",
+				ModalSubtitle:    "We will be in contact with you soon",
+				ModalIcon:        staticHTML["check-icon"],
 			ModalIconBgColor: "bg-success",
 			ClearFormOnClose: true,
 		}
 	}
-
+	
 	return web.HTML(http.StatusOK, html, "components/modal.html", modalProps, nil)
 }
 func error404() *web.Response {
 	return web.HTML(http.StatusOK, html, "pages/404.html", nil, nil)
+}
+
+func robotsTxt(r *http.Request) *web.Response {
+	return web.Data(http.StatusOK, []byte(robotsContent), nil)
 }
