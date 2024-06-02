@@ -27,6 +27,7 @@
     />
     <link rel="manifest" href="/static/favicon/site.webmanifest" />
     <link rel="stylesheet" href="/static/css/output.css" />
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="/static/js/index-pre-load.js"></script>
   </head>
   <body class="relative">
@@ -187,7 +188,10 @@
             ></textarea>
             <button
               type="submit"
-              class="bg-primary text-white w-full rounded p-4 mt-5 hover:bg-secondary transition-colors duration-300"
+              class="g-recaptcha bg-primary text-white w-full rounded p-4 mt-5 hover:bg-secondary transition-colors duration-300"
+              data-sitekey="6LfDDO8pAAAAAEU7XMC0xiGABx5gNSgnsWQMOs5k"
+              data-callback="onSubmitFormReCaptchaCallback"
+              data-action="submit"
             >
               Submit
             </button>

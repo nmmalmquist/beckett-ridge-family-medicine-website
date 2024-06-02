@@ -48,12 +48,13 @@ func (response *Response) Write(rw http.ResponseWriter) {
 	}
 }
 
-type Action func(r *http.Request) *Response
+type Action func(r *http.Request) (*Response)
 
 // Action's http.Handler implementation
 func (a Action) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	response := a(r)
 	response.Write(rw)
+	
 }
 
 // Data returns a data response

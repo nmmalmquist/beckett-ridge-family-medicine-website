@@ -5,4 +5,5 @@ type RequestAppointmentPayload struct {
 	Email string
 	PhoneNumber string
 	Text string
+	RecaptchaToken  string
 }

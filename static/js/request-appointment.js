@@ -18,35 +18,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  requestForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const dataArray = [...formData.entries()];
-    const formIsValid = validateRequestAppointmentForm(dataArray);
-    if (!formIsValid) {
-      return;
-    }
-    // Encode data into url
-    const urlEncodedData = new URLSearchParams();
-    for (const [key, value] of formData) {
-      urlEncodedData.append(key, value);
-    }
-    // send api call
-    const response = await fetch("/api/request-appointment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: urlEncodedData,
-    });
-    const html = await response.text();
-    const modalTarget = document.querySelector("[data-modal-target]");
-    modalTarget.innerHTML = html;
-  });
   modalTarget.addEventListener("click", () => {
     closeModal();
   });
 });
+
+async function onSubmitFormReCaptchaCallback() {
+  const formData = new FormData(requestForm);
+  const dataArray = [...formData.entries()];
+  const formIsValid = validateRequestAppointmentForm(dataArray);
+  if (!formIsValid) {
+    return;
+  }
+  // Encode data into url
+  const urlEncodedData = new URLSearchParams();
+  for (const [key, value] of formData) {
+    urlEncodedData.append(key, value);
+  }
+  // send api call
+  const response = await fetch("/api/request-appointment", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: urlEncodedData,
+  });
+  // Check if response is a redirection
+  const html = await response.text();
+  const modalTarget = document.querySelector("[data-modal-target]");
+  modalTarget.innerHTML = html;
+}
 
 const validateName = (value) => {
   if (!value) {

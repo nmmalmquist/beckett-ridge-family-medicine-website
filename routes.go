@@ -34,7 +34,6 @@ func index(r *http.Request) *web.Response {
 			{Icon: staticHTML["people-icon"], Title: "More than 2000 happy patients", ColorClass: "primary"},
 		},
 		Articles: *constants.GetArticlesFromLibrary(),
-
 	}
 	return web.HTML(http.StatusOK, html, "pages/index.html", data, nil)
 }
@@ -54,38 +53,28 @@ func requestAppointmentPOST(r *http.Request) *web.Response {
 	if parseErr := r.ParseForm(); parseErr != nil {
 		return web.ErrorJSON(http.StatusBadRequest, "Could not parse form.", nil)
 	}
-	
+
 	payload := api.RequestAppointmentPayload{
-		Name:        r.FormValue("full-name"),
-		Email:       r.FormValue("email"),
-		PhoneNumber: r.FormValue("phone"),
-		Text:        r.FormValue("text"),
+		Name:           r.FormValue("full-name"),
+		Email:          r.FormValue("email"),
+		PhoneNumber:    r.FormValue("phone"),
+		Text:           r.FormValue("text"),
+		RecaptchaToken: r.FormValue("g-recaptcha-response"),
 	}
+
+	isValid := validatePayloadRequestPayload(payload)
+	if !isValid {
+		return GetErrorModal(http.StatusBadRequest)
+	}
+
 	_, err := emailService.SendAppointmentRequest(payload)
-	
-	var modalProps types.Modal
+
 	if err != nil {
-		modalProps = types.Modal{
-			Type:             "error",
-			ModalTitle:       "An error occured",
-			ModalSubtitle:    "Please try again later",
-			ModalIcon:        staticHTML["x-icon"],
-			ModalIconBgColor: "bg-danger",
-			ClearFormOnClose: false,
-		}
-		
-		} else {
-			modalProps = types.Modal{
-				Type:             "success",
-				ModalTitle:       "We received your request",
-				ModalSubtitle:    "We will be in contact with you soon",
-				ModalIcon:        staticHTML["check-icon"],
-			ModalIconBgColor: "bg-success",
-			ClearFormOnClose: true,
-		}
+		return GetErrorModal(http.StatusInternalServerError)
+	} else {
+		return GetSuccessModal()
 	}
-	
-	return web.HTML(http.StatusOK, html, "components/modal.html", modalProps, nil)
+
 }
 func error404() *web.Response {
 	return web.HTML(http.StatusOK, html, "pages/404.html", nil, nil)
@@ -93,4 +82,7 @@ func error404() *web.Response {
 
 func robotsTxt(r *http.Request) *web.Response {
 	return web.Data(http.StatusOK, []byte(robotsContent), nil)
+}
+func errorPage(r *http.Request) *web.Response {
+	return web.HTML(http.StatusOK, html, "pages/error.html", nil, nil)
 }

@@ -10,6 +10,7 @@ import (
 
 	"github.com/joho/godotenv"
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/email"
+	"nickmalmquist.com/beckett-ridge-family-medicine-website/recaptcha"
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/web"
 )
 
@@ -28,7 +29,8 @@ var (
 	robotsContent string
 
 	// Services
-	emailService *email.EmailService
+	emailService     *email.EmailService
+	recaptchaService *recaptcha.RecaptchaService
 )
 
 func main() {
@@ -68,9 +70,10 @@ func main() {
 	router.Handle("/privacy-policy", web.Action(privacyPolicy))
 	// API routes
 	router.Handle("/api/request-appointment", web.Action(requestAppointmentPOST))
-	
+
 	// Utility pages
 	router.Handle("/robots.txt", web.Action(robotsTxt))
+	router.Handle("/error", web.Action(errorPage))
 
 	// Logging and tracing
 	logger := log.New(os.Stdout, "http: ", log.LstdFlags)
@@ -84,4 +87,5 @@ func main() {
 
 func initServices() {
 	emailService = email.CreateEmailService()
+	recaptchaService = recaptcha.CreateRecaptchaService()
 }
