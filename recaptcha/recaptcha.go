@@ -2,6 +2,7 @@ package recaptcha
 
 import (
 	"encoding/json"
+	"io"
 	"log"
 	"net/http"
 	"net/url"
@@ -12,6 +13,11 @@ type RecaptchaService struct {
 	verifyLink    string
 	secret        string
 	boundryRating float64
+}
+
+type RecaptchaResponse struct {
+	Success bool    `json:"success"`
+	Score   float64 `json:"score"`
 }
 
 func (service RecaptchaService) Verify(token string) bool {
@@ -25,15 +31,16 @@ func (service RecaptchaService) Verify(token string) bool {
 	}
 	defer resp.Body.Close()
 
-	var result map[string]interface{}
-	err = json.NewDecoder(resp.Body).Decode(&result)
+	bodyByte, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return false
 	}
-	if success, ok := result["success"].(bool); !ok || !success {
+	var recaptchaResponse RecaptchaResponse
+	err = json.Unmarshal(bodyByte, &recaptchaResponse)
+	if err != nil {
 		return false
 	}
-	if score, ok := result["score"].(float64); !ok || score < service.boundryRating {
+	if !recaptchaResponse.Success || recaptchaResponse.Score < service.boundryRating {
 		return false
 	}
 
