@@ -1,7 +1,9 @@
 package types
 
+import "bytes"
+
 type CardFact struct {
-	Icon string
-	Title string 
+	Icon        *bytes.Buffer
+	Title       string
 	Description string
 }

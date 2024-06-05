@@ -1,7 +1,9 @@
 package types
 
+import "bytes"
+
 type TabFact struct {
-	Icon string
-	Title string 
+	Icon       *bytes.Buffer
+	Title      string
 	ColorClass string
 }

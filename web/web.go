@@ -14,7 +14,7 @@ import (
 type Headers map[string]string
 
 type Error struct {
-	Status int
+	Status  int
 	Message string
 }
 type Response struct {
@@ -48,13 +48,13 @@ func (response *Response) Write(rw http.ResponseWriter) {
 	}
 }
 
-type Action func(r *http.Request) (*Response)
+type Action func(r *http.Request) *Response
 
 // Action's http.Handler implementation
 func (a Action) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	response := a(r)
 	response.Write(rw)
-	
+
 }
 
 // Data returns a data response
@@ -140,4 +140,9 @@ func TemplateParseFSRecursive(
 		return nil
 	})
 	return root, err
+}
+
+func GetHTMLFromTemplate(template *template.Template, name string) (bytes.Buffer, error) {
+	var buf bytes.Buffer
+	return buf, template.ExecuteTemplate(&buf, name, nil)
 }

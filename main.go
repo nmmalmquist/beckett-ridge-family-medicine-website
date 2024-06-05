@@ -9,8 +9,6 @@ import (
 	"text/template"
 
 	"github.com/joho/godotenv"
-	"nickmalmquist.com/beckett-ridge-family-medicine-website/email"
-	"nickmalmquist.com/beckett-ridge-family-medicine-website/recaptcha"
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/web"
 )
 
@@ -19,32 +17,20 @@ var (
 	templateFS embed.FS
 	//parsed templates
 	html *template.Template
-	//go:embed all:static_html/*
-	staticHTMLFS embed.FS
-	// map of static html components
-	staticHTML map[string]string
 	//go:embed all:static/*
 	staticFS embed.FS
 	//go:embed robots.txt
 	robotsContent string
 
 	// Services
-	emailService     *email.EmailService
-	recaptchaService *recaptcha.RecaptchaService
+	appServices *AppServices
 )
 
 func main() {
 	godotenv.Load()
 
 	var err error
-	// read in html for static components it map for use in data for templates
-	staticHTML = make(map[string]string)
-	err = parseStaticHtml(staticHTMLFS)
 
-	//parse templates and create relations so that templates can reference eachother
-	if err != nil {
-		panic(err)
-	}
 	// Specify custom functions to use inside html templates
 	funcMap := template.FuncMap{
 		"isEven": func(i int) bool {
@@ -57,7 +43,7 @@ func main() {
 	}
 
 	//Add Services
-	initServices()
+	appServices = InitServices()
 
 	// Add Routes
 	router := http.NewServeMux()
@@ -79,13 +65,7 @@ func main() {
 	logger := log.New(os.Stdout, "http: ", log.LstdFlags)
 	middleware := logging(logger)(router)
 
-	ADDRESS := "0.0.0.0:8000"
+	ADDRESS := "localhost:8000"
 	fmt.Println("Started web server on", ADDRESS)
 	log.Fatal(http.ListenAndServe(ADDRESS, middleware))
-
-}
-
-func initServices() {
-	emailService = email.CreateEmailService()
-	recaptchaService = recaptcha.CreateRecaptchaService()
 }
