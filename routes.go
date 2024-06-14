@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/constants"
@@ -64,12 +65,14 @@ func requestAppointmentPOST(r *http.Request) *web.Response {
 
 	isValid := validatePayloadRequestPayload(payload)
 	if !isValid {
+		log.Println("error: payload not valid")
 		return GetErrorModal(http.StatusBadRequest)
 	}
 
 	_, err := appServices.EmailService.SendAppointmentRequest(payload)
 
 	if err != nil {
+		log.Println("error: could not send appointment email -- ", err)
 		return GetErrorModal(http.StatusInternalServerError)
 	} else {
 		return GetSuccessModal()
