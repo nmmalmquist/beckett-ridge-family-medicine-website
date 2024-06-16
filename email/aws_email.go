@@ -43,8 +43,8 @@ func (service EmailService) send(subject string, body string, to string) (*sesv2
 
 func (service EmailService) SendAppointmentRequest(payload api.RequestAppointmentPayload) (*sesv2.SendEmailOutput, error) {
 	return service.send(fmt.Sprintf("%s requests an appointment", payload.Name),
-		fmt.Sprintf("Please call %s to create an appointment with them\nReason: %s",
-			payload.PhoneNumber, payload.Text), service.requestApptToEmail)
+		fmt.Sprintf("Please call %s to create an appointment with %s.\nEmail: %s\nReason: %s",
+			payload.PhoneNumber, payload.Name, payload.Email, payload.Text), service.requestApptToEmail)
 }
 
 func CreateEmailService() *EmailService {
