@@ -923,6 +923,14 @@ video {
   width: min-content;
 }
 
+.w-\[60\%\] {
+  width: 60%;
+}
+
+.w-\[70\%\] {
+  width: 70%;
+}
+
 .min-w-64 {
   min-width: 16rem;
 }
@@ -985,6 +993,10 @@ video {
 
 .max-w-\[80\%\] {
   max-width: 80%;
+}
+
+.max-w-\[20rem\] {
+  max-width: 20rem;
 }
 
 .flex-1 {
