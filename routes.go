@@ -39,13 +39,41 @@ func index(r *http.Request) *web.Response {
 	return web.HTML(http.StatusOK, html, "pages/index.html", data, nil)
 }
 func providers(r *http.Request) *web.Response {
-	return web.HTML(http.StatusOK, html, "pages/providers.html", nil, nil)
+	type ProvidersPageData struct {
+		ActivePage string
+	}
+	data := ProvidersPageData{
+		ActivePage: "providers",
+	}
+	return web.HTML(http.StatusOK, html, "pages/providers.html", data, nil)
+}
+func weightManagement(r *http.Request) *web.Response {
+	type WeightManagementPageData struct {
+		ActivePage string
+		CardFacts  []types.CardFact
+	}
+
+	data := WeightManagementPageData{
+		ActivePage: "weight-management",
+		CardFacts: []types.CardFact{
+			{Icon: GetHTMLFromRootTemplate("components/lightning-icon.html"), Title: "Understand Your Health", Description: "Feeling tired and unmotivated can make it challenging to be productive, but our services are designed to help you boost your daily energy levels and achieve weight loss. Our comprehensive weight loss care program includes personalized meal plans that provide balanced nutrition, ensuring you stay energized throughout the day. We offer regular exercise routines tailored to your fitness level, which not only aid in weight loss but also enhance your vitality. Additionally, our stress management techniques, such as guided meditation and breathing exercises, help reduce fatigue and improve overall well-being. By utilizing our expert guidance and support, you can achieve your weight loss goals and enjoy a more energized, productive life."},
+			{Icon: GetHTMLFromRootTemplate("components/check-icon.html"), Title: "Confidence", Description: "Gaining confidence in our weight loss program is essential for your success, and we ensure that every step is tailored to your unique needs. Our program is backed by scientific research and has helped countless individuals achieve their weight loss goals effectively and sustainably. With personalized support from our experienced professionals, you can trust that you are in capable hands. Regular progress tracking and adjustments ensure that the program adapts to your evolving needs, maximizing your results. By seeing consistent improvements and receiving ongoing encouragement, you'll gain the confidence that our weight loss program truly works."},
+			{Icon: GetHTMLFromRootTemplate("components/vitality-icon.html"), Title: "Reduced Body Fat", Description: "Our program's proven results in decreasing body fat demonstrate its effectiveness and reliability. Countless individuals have successfully reduced their body fat percentage through our tailored approach, showcasing the program's ability to deliver tangible outcomes. Our scientific methodology, combined with personalized support from experienced professionals, ensures you achieve the best possible results. Consistent progress tracking and adaptive strategies further validate the success of our program in helping you reach your goals. Seeing these real, measurable improvements will give you the confidence that our program truly works."},
+		},
+	}
+	return web.HTML(http.StatusOK, html, "pages/weight-management.html", data, nil)
 }
 func privacyPolicy(r *http.Request) *web.Response {
 	return web.HTML(http.StatusOK, html, "pages/privacy-policy.html", nil, nil)
 }
 func requestAppointment(r *http.Request) *web.Response {
-	return web.HTML(http.StatusOK, html, "pages/request-appointment.html", nil, nil)
+	type RequestAppointmentPageData struct {
+		ActivePage string
+	}
+	data := RequestAppointmentPageData{
+		ActivePage: "request-appointment",
+	}
+	return web.HTML(http.StatusOK, html, "pages/request-appointment.html", data, nil)
 }
 func requestAppointmentPOST(r *http.Request) *web.Response {
 	if r.Method != "POST" {

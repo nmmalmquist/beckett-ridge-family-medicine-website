@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn how we can help you lose weight by improving your metabolism and decreasing your appetite."
+    />
+    <title>Weight Management - Beckett Ridge Family Medicine</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/static/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/static/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="/static/css/output.css" />
+    <script src="/static/js/index-pre-load.js"></script>
+  </head>
+  <body class="relative">
+    {{ template "components/navbar.html" . }}
+    <main class="mt-24 flex flex-col gap-10">
+      <div>
+        <div
+          style="
+            background-image: url('/static/images/weight-loss-stock-image.jpeg');
+          "
+          class="relative w-full bg-dark min-h-96 rounded-b-lg text-center text-4xl text-white tracking-widest flex items-center justify-center bg-cover bg-center"
+        >
+          <div
+            class="absolute bottom-0 top-0 left-0 right-0 opacity-75 bg-dark"
+          ></div>
+          <h1 class="z-10">Weight Management Program</h1>
+        </div>
+        <div
+          class="w-full bg-secondary px-6 md:px-20 py-2 flex justify-center items-center"
+        >
+          <ul
+            class="text-white text-2xl flex flex-col md:flex-row justify-between items-center gap-6 text-center max-w-[55rem] w-full"
+          >
+            <h3>Decrease Appetite</h3>
+            <h3>Lose Weight</h3>
+            <h3>Improve Metabolism</h3>
+          </ul>
+        </div>
+      </div>
+      <section
+        class="px-6 sm:px-12 md:px-16 lg:px-24 flex flex-col items-center py-16 gap-20"
+      >
+        <div class="max-w-[32rem] flex flex-col gap-10">
+          <h2 class="text-primary text-5xl font-semibold text-center">
+            What is Food Noise?
+          </h2>
+          <p class="text-center text-lg">
+            We ALL have it. That internal food chatter. The thinking of our next
+            meal. Its only when it becomes obsessive, controls your day, and is
+            irresistible that help is needed.
+          </p>
+          <div
+            class="flex flex-col md:flex-row gap-6 w-full justify-center items-center"
+          >
+            <a
+              href="/request-appointment"
+              class="flex items-center justify-center bg-primary rounded px-6 py-4 text-center text-white max-w-72 w-full hover:bg-secondary transition-all"
+            >
+              Request Appointment
+            </a>
+            <a
+              href="/static/pdfs/Patient-Registration-Forms.pdf"
+              target="_blank"
+              rel="nofollow"
+              download
+              class="border-2 border-primary text-primary rounded px-6 py-4 text-center max-w-72 w-full hover:bg-primary hover:text-white transition-all"
+            >
+              Patient Registration Form
+            </a>
+          </div>
+        </div>
+      </section>
+      <section
+        class="px-6 sm:px-12 md:px-16 lg:px-32 bg-secondary flex flex-col py-20"
+      >
+        <h1 class="text-4xl text-white text-center">
+          Lose Weight and Take Back Control.
+        </h1>
+        <div class="flex gap-6 mt-14 justify-center items-stretch flex-wrap">
+          {{range .CardFacts}}
+          <div class="flex-1 min-w-72">
+            {{template "components/fact_card.html" .}}
+          </div>
+          {{end}}
+        </div>
+      </section>
+      <section
+        class="px-6 sm:px-12 md:px-16 lg:px-24 flex flex-col pt-10 gap-6"
+      >
+        <div>
+          <h6 class="text-3xl text-dark mb-2">Step 1</h6>
+          <div
+            class="text-white text-xl rounded px-6 py-4 text-center max-w-[80%] w-full bg-primary"
+          >
+            Step 1: Metabolism Assessment
+          </div>
+        </div>
+        <div class="ml-[10%] w-full">
+          <h6 class="text-3xl text-dark mb-2">Step 2</h6>
+          <div
+            class="text-white text-xl rounded px-6 py-4 text-center max-w-[80%] w-full bg-secondary"
+          >
+            Injection & Supplement Perscription
+          </div>
+        </div>
+        <div class="ml-[20%] w-full">
+          <h6 class="text-3xl text-dark mb-2">Step 3</h6>
+          <div
+            class="text-white text-xl rounded px-6 py-4 text-center max-w-[80%] w-full bg-primary"
+          >
+            Personal Coaching Checkins
+          </div>
+        </div>
+      </section>
+      <section
+        class="px-6 sm:px-12 md:px-16 lg:px-24 flex flex-col items-center py-16 gap-20"
+      >
+        <div class="max-w-[50rem] flex flex-col gap-10">
+          <h2 class="text-primary text-5xl font-semibold text-center">
+            What is Treatment Protocol?
+          </h2>
+          <p class="text-center text-lg">
+            Our weight loss management program targets two things that are
+            commonly looked over in normal diets. Hormone regulation and
+            appetite control. This treatment utilizes a class of medicinal
+            injections, incretin mimetics, modeled after the naturally occurring
+            GLP-1 analogs found in your body. GLP-1 regulates how much insulin
+            is released as well as regulates appetite. Ultimately, the
+            injections will help the pancreas release the right amount of
+            insulin as well as help your brain produce the correct amount of
+            hormone to regulate hunger. This leads to feelings of fullness and
+            satisfaction with smaller meal sizes, lower blood sugar, and
+            increased metabolism.
+          </p>
+          <div
+            class="flex flex-col md:flex-row gap-6 w-full justify-center items-center"
+          >
+            <a
+              href="/request-appointment"
+              class="flex items-center justify-center bg-primary rounded px-6 py-4 text-center text-white max-w-72 w-full hover:bg-secondary transition-all"
+            >
+              Request Appointment
+            </a>
+            <a
+              href="/static/pdfs/Patient-Registration-Forms.pdf"
+              target="_blank"
+              rel="nofollow"
+              download
+              class="border-2 border-primary text-primary rounded px-6 py-4 text-center w-full max-w-72 hover:text-white hover:bg-primary transition-all"
+            >
+              Patient Registration Form
+            </a>
+          </div>
+        </div>
+      </section>
+      <div class="fixed bottom-10 right-10 sm:hidden z-[5] h-20 w-20">
+        {{template "components/mobile_phone_button.html"}}
+      </div>
+      {{template "components/footer.html"}}
+    </main>
+  </body>
+  <script src="/static/js/index-post-load.js"></script>
+</html>

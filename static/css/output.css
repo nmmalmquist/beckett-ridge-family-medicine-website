@@ -747,6 +747,26 @@ video {
   margin-top: 1.5rem;
 }
 
+.ml-\[2\%\] {
+  margin-left: 2%;
+}
+
+.ml-\[10\%\] {
+  margin-left: 10%;
+}
+
+.ml-\[20\%\] {
+  margin-left: 20%;
+}
+
+.ml-\[40\%\] {
+  margin-left: 40%;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -858,6 +878,10 @@ video {
   min-height: 18rem;
 }
 
+.min-h-96 {
+  min-height: 24rem;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -945,6 +969,22 @@ video {
 
 .max-w-screen-xl {
   max-width: 1280px;
+}
+
+.max-w-\[45rem\] {
+  max-width: 45rem;
+}
+
+.max-w-\[50rem\] {
+  max-width: 50rem;
+}
+
+.max-w-\[55rem\] {
+  max-width: 55rem;
+}
+
+.max-w-\[80\%\] {
+  max-width: 80%;
 }
 
 .flex-1 {
@@ -1325,6 +1365,21 @@ video {
   padding-bottom: 4vh;
 }
 
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -1355,6 +1410,14 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pt-16 {
+  padding-top: 4rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .text-center {
@@ -1639,6 +1702,10 @@ video {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
   .md\:justify-start {
     justify-content: flex-start;
   }
@@ -1724,6 +1791,12 @@ video {
   .lg\:text-9xl {
     font-size: 8rem;
     line-height: 1;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:inline {
+    display: inline;
   }
 }
 
