@@ -22,8 +22,6 @@ var (
 	//go:embed robots.txt
 	robotsContent string
 
-	// Services
-	appServices *AppServices
 )
 
 func main() {
@@ -42,9 +40,6 @@ func main() {
 		panic(err)
 	}
 
-	//Add Services
-	appServices = InitServices()
-
 	// Add Routes
 	router := http.NewServeMux()
 	// Allows access to images, css, and js files
@@ -52,11 +47,9 @@ func main() {
 	// Pages
 	router.Handle("/", web.Action(index))
 	router.Handle("/providers", web.Action(providers))
-	router.Handle("/request-appointment", web.Action(requestAppointment))
 	router.Handle("/privacy-policy", web.Action(privacyPolicy))
 	router.Handle("/weight-management", web.Action(weightManagement))
 	// API routes
-	router.Handle("/api/request-appointment", web.Action(requestAppointmentPOST))
 
 	// Utility pages
 	router.Handle("/robots.txt", web.Action(robotsTxt))

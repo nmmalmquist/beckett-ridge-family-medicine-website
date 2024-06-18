@@ -1,12 +1,10 @@
 package main
 
 import (
-	"log"
 	"net/http"
 
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/constants"
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/types"
-	"nickmalmquist.com/beckett-ridge-family-medicine-website/types/api"
 	"nickmalmquist.com/beckett-ridge-family-medicine-website/web"
 )
 
@@ -65,47 +63,6 @@ func weightManagement(r *http.Request) *web.Response {
 }
 func privacyPolicy(r *http.Request) *web.Response {
 	return web.HTML(http.StatusOK, html, "pages/privacy-policy.html", nil, nil)
-}
-func requestAppointment(r *http.Request) *web.Response {
-	type RequestAppointmentPageData struct {
-		ActivePage string
-	}
-	data := RequestAppointmentPageData{
-		ActivePage: "request-appointment",
-	}
-	return web.HTML(http.StatusOK, html, "pages/request-appointment.html", data, nil)
-}
-func requestAppointmentPOST(r *http.Request) *web.Response {
-	if r.Method != "POST" {
-		return web.Data(http.StatusMethodNotAllowed, nil, nil)
-	}
-	if parseErr := r.ParseForm(); parseErr != nil {
-		return web.ErrorJSON(http.StatusBadRequest, "Could not parse form.", nil)
-	}
-
-	payload := api.RequestAppointmentPayload{
-		Name:           r.FormValue("full-name"),
-		Email:          r.FormValue("email"),
-		PhoneNumber:    r.FormValue("phone"),
-		Text:           r.FormValue("text"),
-		RecaptchaToken: r.FormValue("g-recaptcha-response"),
-	}
-
-	isValid := validatePayloadRequestPayload(payload)
-	if !isValid {
-		log.Println("error: payload not valid")
-		return GetErrorModal(http.StatusBadRequest)
-	}
-
-	_, err := appServices.EmailService.SendAppointmentRequest(payload)
-
-	if err != nil {
-		log.Println("error: could not send appointment email -- ", err)
-		return GetErrorModal(http.StatusInternalServerError)
-	} else {
-		return GetSuccessModal()
-	}
-
 }
 func error404() *web.Response {
 	return web.HTML(http.StatusOK, html, "pages/404.html", nil, nil)
