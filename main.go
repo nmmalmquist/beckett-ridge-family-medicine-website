@@ -46,14 +46,14 @@ func main() {
 	router.Handle("/static/", http.FileServer(http.FS(staticFS)))
 	// Pages
 	router.Handle("/", web.Action(index))
-	router.Handle("/providers", web.Action(providers))
-	router.Handle("/privacy-policy", web.Action(privacyPolicy))
-	router.Handle("/weight-management", web.Action(weightManagement))
+	router.Handle("/providers/", web.Action(providers))
+	router.Handle("/privacy-policy/", web.Action(privacyPolicy))
+	router.Handle("/weight-management/", web.Action(weightManagement))
 	// API routes
 
 	// Utility pages
 	router.Handle("/robots.txt", web.Action(robotsTxt))
-	router.Handle("/error", web.Action(errorPage))
+	router.Handle("/error/", web.Action(errorPage))
 
 	// Logging and tracing
 	logger := log.New(os.Stdout, "http: ", log.LstdFlags)
