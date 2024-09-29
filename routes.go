@@ -61,6 +61,9 @@ func weightManagement(r *http.Request) *web.Response {
 	}
 	return web.HTML(http.StatusOK, html, "pages/weight-management.html", data, nil)
 }
+func newPatientSteps(r *http.Request) *web.Response {
+	return web.HTML(http.StatusOK, html, "pages/new-patient-steps.html", nil, nil)
+}
 func privacyPolicy(r *http.Request) *web.Response {
 	return web.HTML(http.StatusOK, html, "pages/privacy-policy.html", nil, nil)
 }

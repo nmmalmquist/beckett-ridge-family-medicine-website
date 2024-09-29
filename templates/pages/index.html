@@ -69,9 +69,11 @@
     {{ template "components/navbar.html" . }}
     <main class="mt-24">
       <section
-        class="w-full h-[calc(100vh-5rem)] bg-cover bg-center relative flex flex-col items-center justify-center banner-animation"
+        class="w-full h-[calc(100vh-5rem)] bg-cover bg-center relative flex flex-col items-center justify-center banner-animation gap-8"
       >
-        <div class="flex flex-col gap-10 relative text-center rounded-lg p-6">
+        <div
+          class="flex flex-col gap-10 relative text-center rounded-lg p-6 m-4"
+        >
           <div
             class="absolute left-0 top-0 bottom-0 right-0 bg-offwhite opacity-70 rounded-lg"
           ></div>
@@ -85,6 +87,11 @@
             </div>
           </div>
         </div>
+        <a
+          class="rounded px-6 py-4 text-center max-w-72 w-full text-white bg-primary transition-all hover:scale-105 m-4"
+          href="/new-patient-steps/"
+          >New Patient Registration</a
+        >
       </section>
       <section
         class="px-6 sm:px-12 md:px-16 lg:px-32 flex flex-col items-center py-20 gap-20"
@@ -168,15 +175,12 @@
       </section>
       <section class="px-6 pb-20 sm:px-12 md:px-16 lg:px-32">
         <div class="grid place-items-center">
-          <div class="w-full mx-auto rounded border">
+          <div class="w-full mx-auto rounded">
             <div class="bg-white p-10 shadow-sm flex flex-col gap-4">
-              <h3 class="text-2xl">Frequently Asked Questions</h3>
-              <div class="h-1 w-full mx-auto border-b my-3"></div>
+              <h3 class="text-2xl mb-4">Frequently Asked Questions</h3>
 
               <!-- What is term -->
-              <div
-                class="transition-colors hover:bg-primary hover:text-white border border-dark rounded-lg"
-              >
+              <div class="transition-colors border border-dark rounded-lg">
                 <!-- header -->
                 <div
                   class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4 justify-between"
@@ -199,9 +203,7 @@
               </div>
 
               <!-- When to use Accordion Components -->
-              <div
-                class="transition-colors hover:bg-primary hover:text-white border border-dark rounded-lg"
-              >
+              <div class="transition-colors border border-dark rounded-lg">
                 <!-- header -->
                 <div
                   class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4 justify-between"
@@ -224,9 +226,7 @@
               </div>
 
               <!-- Accordion Wrapper -->
-              <div
-                class="transition-colors hover:bg-primary hover:text-white border border-dark rounded-lg"
-              >
+              <div class="transition-colors border border-dark rounded-lg">
                 <!-- header -->
                 <div
                   class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4 justify-between"
@@ -266,9 +266,7 @@
               </div>
 
               <!-- Accordion Wrapper -->
-              <div
-                class="transition-colors hover:bg-primary hover:text-white border border-dark rounded-lg"
-              >
+              <div class="transition-colors border border-dark rounded-lg">
                 <!-- header -->
                 <div
                   class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center p-4 justify-between"
@@ -320,13 +318,10 @@
                 accordionContent.style.maxHeight = `${
                   accordionContent.scrollHeight + 32
                 }px`;
-                header.parentElement.classList.add("bg-primary", "text-white");
+                header.parentElement.classList.add("bg-grayaccent");
               } else {
                 accordionContent.style.maxHeight = `0px`;
-                header.parentElement.classList.remove(
-                  "bg-primary",
-                  "text-white"
-                );
+                header.parentElement.classList.remove("bg-grayaccent");
               }
             });
           });

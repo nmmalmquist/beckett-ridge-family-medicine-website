@@ -49,6 +49,7 @@ func main() {
 	router.Handle("/providers/", web.Action(providers))
 	router.Handle("/privacy-policy/", web.Action(privacyPolicy))
 	router.Handle("/weight-management/", web.Action(weightManagement))
+	router.Handle("/new-patient-steps/", web.Action(newPatientSteps))
 	// API routes
 
 	// Utility pages
